@@ -2,13 +2,15 @@ from datetime import datetime, timedelta
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import PermissionDenied
+from rest_framework.exceptions import PermissionDenied, NotFound
+from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
 
 
 from .serializers.common import UserSerializer
+from .serializers.populated import PopulatedUserSerializer
 User = get_user_model()
 
 
@@ -46,3 +48,41 @@ class LoginView(APIView):
             {'token': token, 'message': f'Welcome Back {user_to_login}'}
         )
 
+class ProfileView(APIView):
+
+    ''' Controller for request to /auth/profile Handles logged in users profile  '''
+
+
+    permission_classes = (IsAuthenticated, )
+
+    def get(self, request):
+        user = User.objects.get(pk=request.user.id)
+        serialized_user = PopulatedUserSerializer(user)
+        return Response(serialized_user.data, status=status.HTTP_200_OK)
+
+
+class UserDetailView(APIView):
+    """ Controller responsible for getting single user profile at auth/user/id endpoint  """
+
+    def get(self, _request, pk):
+        try:
+            user = User.objects.get(pk=pk)
+            serialized_user = PopulatedUserSerializer(user)
+            return Response(serialized_user.data, status=status.HTTP_200_OK)
+        except User.DoesNotExist:
+            raise NotFound()
+       
+class UserFriendView(APIView):
+    """ Controller responsible for friending users at auth/user/id/friend endpoint """
+
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request, pk):
+        try:
+            user_to_friend = User.objects.get(pk=pk)
+            user_to_friend.friended_by.add(request.user.id)
+            user_to_friend.save()
+            serialized_freinded_user = PopulatedUserSerializer(user_to_friend)
+            return Response(serialized_freinded_user.data, status=status.HTTP_201_CREATED)
+        except User.DoesNotExist:
+            raise NotFound()
