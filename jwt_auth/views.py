@@ -64,6 +64,8 @@ class ProfileView(APIView):
 class UserDetailView(APIView):
     """ Controller responsible for getting single user profile at auth/user/id endpoint  """
 
+    permission_classes = (IsAuthenticated, )
+
     def get(self, _request, pk):
         try:
             user = User.objects.get(pk=pk)
@@ -71,6 +73,18 @@ class UserDetailView(APIView):
             return Response(serialized_user.data, status=status.HTTP_200_OK)
         except User.DoesNotExist:
             raise NotFound()
+
+    def delete(self, request, pk):
+        try:
+            user_to_delete = User.objects.get(pk=pk)
+            if user_to_delete.id != request.user.id:
+                raise PermissionDenied()
+            user_to_delete.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except User.DoesNotExist:
+            raise NotFound()
+        
+
        
 class UserFriendView(APIView):
     """ Controller responsible for friending users at auth/user/id/friend endpoint """

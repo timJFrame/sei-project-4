@@ -28,7 +28,7 @@ class PostListView(APIView):
 
 
 class PostDetailView(APIView):
-    """ Hanldes GET/PUT/DELETE requests made to /posts/pk/ endoint  """
+    """ Handles GET/PUT/DELETE requests made to /posts/pk/ endoint  """
 
     permission_classes = (IsAuthenticatedOrReadOnly, )
 
@@ -64,7 +64,9 @@ class PostDetailView(APIView):
         post_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
 class PostLikeView(PostDetailView):
+    """ Handles requests made to /posts/pk/like/  """
 
     permission_classes = (IsAuthenticated, )
 
