@@ -1,0 +1,68 @@
+.profile-container{
+    max-width: 500px;
+ 
+    margin: 100px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center
+}
+
+.main-user-details{
+    display: flex;
+    padding-bottom: 30px;
+    justify-content: space-evenly;
+}
+
+.name-email-div{
+margin-right: 220px;
+
+}
+
+.user-profile-image{
+    flex: 1;
+    max-height: 100px;
+    max-width: 100px;
+    border-radius: 100px;
+}
+
+
+.user-bio-container{
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+.friends-profile-view{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.friends-title{
+    padding-top: 15px;
+    margin-bottom: -30px;
+    display: flex;
+    text-align: right;
+}
+
+.friend-title{
+    text-align: right;
+}
+
+.image-and-name{
+    margin: 0 10px;
+}
+
+.friend-profile-image{
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5px;
+}
+
+.profile-view-friend-name{
+    text-align: center;
+}
