@@ -5,3 +5,5 @@ class PopulatedPostSerializer(PostSerializer):
     """ Used for all outgoing serialization  """
 
     owner = NestedUserSerializer()
+    liked_by = NestedUserSerializer(many=True)
+    

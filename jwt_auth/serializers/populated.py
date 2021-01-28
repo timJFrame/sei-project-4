@@ -7,3 +7,4 @@ class PopulatedUserSerializer(UserSerializer):
     created_posts = PostSerializer(many=True)
     liked_posts = PostSerializer(many=True)
     friended_by = NestedUserSerializer(many=True)
+    
