@@ -14,7 +14,7 @@ class PostListView(APIView):
     """ Hanldles GET and POST requests made to /posts/ endpoint  """
 
     def get(self, _request):
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by('-created_at')
         serialized_post = PopulatedPostSerializer(posts, many=True)
         return Response(serialized_post.data, status=status.HTTP_200_OK)
 
