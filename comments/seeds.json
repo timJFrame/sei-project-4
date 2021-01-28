@@ -1,0 +1,192 @@
+[
+{
+  "model": "comments.comment",
+  "pk": 1,
+  "fields": {
+    "text": "Wow nice!!!",
+    "created_at": "2021-01-28T17:11:52.317Z",
+    "post": 1,
+    "owner": 3
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 2,
+  "fields": {
+    "text": "I like it!!",
+    "created_at": "2021-01-28T17:12:03.900Z",
+    "post": 6,
+    "owner": 8
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 3,
+  "fields": {
+    "text": "Good work!!",
+    "created_at": "2021-01-28T17:12:23.682Z",
+    "post": 3,
+    "owner": 2
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 4,
+  "fields": {
+    "text": "Awesome!!!",
+    "created_at": "2021-01-28T17:12:54.784Z",
+    "post": 5,
+    "owner": 7
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 5,
+  "fields": {
+    "text": "So cool...",
+    "created_at": "2021-01-28T17:13:20.615Z",
+    "post": 6,
+    "owner": 10
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 6,
+  "fields": {
+    "text": "👍",
+    "created_at": "2021-01-28T17:14:00.530Z",
+    "post": 7,
+    "owner": 3
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 7,
+  "fields": {
+    "text": "So good!!!",
+    "created_at": "2021-01-28T17:14:32.166Z",
+    "post": 9,
+    "owner": 7
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 8,
+  "fields": {
+    "text": "😻",
+    "created_at": "2021-01-28T17:14:51.414Z",
+    "post": 10,
+    "owner": 10
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 9,
+  "fields": {
+    "text": "😎",
+    "created_at": "2021-01-28T17:15:21.167Z",
+    "post": 11,
+    "owner": 5
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 10,
+  "fields": {
+    "text": "Top stuff!!",
+    "created_at": "2021-01-28T17:15:54.974Z",
+    "post": 12,
+    "owner": 8
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 11,
+  "fields": {
+    "text": "Amazing",
+    "created_at": "2021-01-28T17:16:18.972Z",
+    "post": 12,
+    "owner": 5
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 12,
+  "fields": {
+    "text": "😗",
+    "created_at": "2021-01-28T17:16:52.115Z",
+    "post": 13,
+    "owner": 11
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 13,
+  "fields": {
+    "text": "Someones got green thumbs!!!",
+    "created_at": "2021-01-28T17:17:23.378Z",
+    "post": 14,
+    "owner": 9
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 14,
+  "fields": {
+    "text": "🙂",
+    "created_at": "2021-01-28T17:17:53.877Z",
+    "post": 15,
+    "owner": 3
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 15,
+  "fields": {
+    "text": "🥕",
+    "created_at": "2021-01-28T17:18:25.445Z",
+    "post": 16,
+    "owner": 7
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 16,
+  "fields": {
+    "text": "Good work!!!",
+    "created_at": "2021-01-28T17:18:48.175Z",
+    "post": 17,
+    "owner": 7
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 17,
+  "fields": {
+    "text": "Top job",
+    "created_at": "2021-01-28T17:19:13.019Z",
+    "post": 18,
+    "owner": 2
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 18,
+  "fields": {
+    "text": "🥔",
+    "created_at": "2021-01-28T17:19:34.507Z",
+    "post": 19,
+    "owner": 9
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 19,
+  "fields": {
+    "text": "🙉",
+    "created_at": "2021-01-28T17:20:02.047Z",
+    "post": 20,
+    "owner": 10
+  }
+}
+]

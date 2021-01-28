@@ -3,12 +3,28 @@
   "model": "posts.post",
   "pk": 1,
   "fields": {
-    "post_text": "this is a changed post",
-    "created_at": "2021-01-27T16:19:25.299Z",
-    "post_image": "this is a changed image",
+    "post_text": "The garden is looking really good this year!!!",
+    "created_at": "2021-01-28T16:45:28.308Z",
+    "post_image": "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/veg-garden-1525260021.jpg",
     "owner": 2,
     "liked_by": [
-      2
+      3,
+      4
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 2,
+  "fields": {
+    "post_text": "This my garden guys!!!! I'm so proud of it!!!!",
+    "created_at": "2021-01-28T16:47:06.318Z",
+    "post_image": "https://i1.wp.com/savvygardening.com/wp-content/uploads/2016/02/vegetable-garden.jpg?resize=657%2C360&ssl=1",
+    "owner": 3,
+    "liked_by": [
+      9,
+      10,
+      11
     ]
   }
 },
@@ -16,44 +32,297 @@
   "model": "posts.post",
   "pk": 3,
   "fields": {
-    "post_text": "1st post",
-    "created_at": "2021-01-28T14:46:55.139Z",
-    "post_image": "1st post",
-    "owner": 2,
-    "liked_by": []
+    "post_text": "I can't believe I actually did it. I grew something!!!!",
+    "created_at": "2021-01-28T16:48:39.355Z",
+    "post_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS91nos899aiBfMcxfS9leywSmltPPZdd9Wyg&usqp=CAU",
+    "owner": 4,
+    "liked_by": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
   }
 },
 {
   "model": "posts.post",
   "pk": 4,
   "fields": {
-    "post_text": "2nd post",
-    "created_at": "2021-01-28T14:47:13.922Z",
-    "post_image": "2nd post",
-    "owner": 2,
-    "liked_by": []
+    "post_text": "Does anyone have any tomato grow tips. They seem to be doing well but I feel it could be better",
+    "created_at": "2021-01-28T16:50:15.484Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXGB4bGBcYGBogHhofHh0dHR0YHRcaICggHR0lGx0aITEiJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGy4mICUtLS4tNTAwLS0vLSstLS0vKy0vLS0tNy0tLS8tLS8tLS0tLS4vLS0tLS0tLi0rLS0tLf/AABEIALcBFAMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAFBgMEAAEHAgj/xABAE",
+    "owner": 5,
+    "liked_by": [
+      7,
+      8,
+      9
+    ]
   }
 },
 {
   "model": "posts.post",
   "pk": 5,
   "fields": {
-    "post_text": "3rd post",
-    "created_at": "2021-01-28T14:47:40.102Z",
-    "post_image": "3rd post",
-    "owner": 2,
-    "liked_by": []
+    "post_text": "Its coming along slowly",
+    "created_at": "2021-01-28T16:51:15.444Z",
+    "post_image": "https://i.pinimg.com/originals/7d/83/ef/7d83ef2bea22180ab1757d2116c87619.jpg",
+    "owner": 6,
+    "liked_by": [
+      2,
+      3
+    ]
   }
 },
 {
   "model": "posts.post",
   "pk": 6,
   "fields": {
-    "post_text": "4th post",
-    "created_at": "2021-01-28T14:47:50.353Z",
-    "post_image": "4th post",
+    "post_text": "These little guys are almost ready to plant outside....",
+    "created_at": "2021-01-28T16:52:20.468Z",
+    "post_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1v36SKM2vgxUCTMnH7S1O-9JuPQZR3DhMIQ&usqp=CAU",
+    "owner": 7,
+    "liked_by": [
+      4,
+      9,
+      11
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 7,
+  "fields": {
+    "post_text": "Awww so cute!!!",
+    "created_at": "2021-01-28T16:53:33.504Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFRUXFhobGBgYGBodGhoYGhYYGBcYGR0aHyggGholHRcXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGislHyUtLS0vLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIANYA7AMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQIDBgEHAP/EAEIQA",
+    "owner": 8,
+    "liked_by": [
+      4,
+      7,
+      9,
+      11
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 8,
+  "fields": {
+    "post_text": "My beans are getting off to a good start this year.",
+    "created_at": "2021-01-28T16:54:35.304Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTEhIVFRUXFxgXFxcVFxUVGBYXFRcWFxUXFRcYHSggGBolGxcVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGysmHh8tLS8tLS0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLTctLf/AABEIAMIBAwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAAIDBAYBBwj/xABAE",
+    "owner": 9,
+    "liked_by": [
+      4,
+      6
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 9,
+  "fields": {
+    "post_text": "Look at it!!! Its so majestic!!!",
+    "created_at": "2021-01-28T16:55:49.505Z",
+    "post_image": "https://www.gardeningknowhow.com/wp-content/uploads/2019/08/indoor-fern-400x267.jpg",
+    "owner": 10,
+    "liked_by": [
+      4,
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 10,
+  "fields": {
+    "post_text": "Nothing like being back home on the farm",
+    "created_at": "2021-01-28T16:57:11.620Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUTExMWFhUXGBoYGBgYGBodHxgdGxkeHRobGhsYHyogGB0mHhoYITEhJSkrLi4uHR8zODMsNygtLisBCgoKDg0OGhAQGy8mICUtLS0tLS0tLS0tLS0tLS0tLS0tLS0vLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAEAAIDBQYBBwj/xABCE",
+    "owner": 11,
+    "liked_by": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 11,
+  "fields": {
+    "post_text": "Does anyone have any experience growing chilli's?",
+    "created_at": "2021-01-28T16:58:58.851Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExQWFRUXGSAaGRcYGRgbFxsbHRgaHRsbHxoaHSglGBslHxgeITEhJykrLi4uGiAzODMtNygtLisBCgoKDg0OGxAQGy0mICYtLS0tLS8tLS0tLS0tLS0tLS8tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALUBFgMBEQACEQEDEQH/xAAbAAADAQEBAQEAAAAAAAAAAAAEBQYDAgcBAP/EAEIQA",
     "owner": 2,
-    "liked_by": []
+    "liked_by": [
+      5,
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 12,
+  "fields": {
+    "post_text": "I think I'm going to give corn a try this year. Thoughts?",
+    "created_at": "2021-01-28T16:59:50.074Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxQTEhUTExMVFhUXGRsYGRgXGB0fHhsfGBkXFyAeHR0bHSggGholGxoYITEhJykrLi4uIB8zODMtNygtLisBCgoKDg0OGxAQGy8lHyYtNS8yMi0xLTUtLystLS0tLy8tLzItLS0tLS0vMDUvLS0tNS8tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAAEBQMGBwACAQj/xABHE",
+    "owner": 3,
+    "liked_by": [
+      5,
+      7
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 13,
+  "fields": {
+    "post_text": "I'm now the proud owner of 3 chickens!!!",
+    "created_at": "2021-01-28T17:01:10.983Z",
+    "post_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR775cCu2sr14TjdWlgYlicES_KUKrvAFUndA&usqp=CAU",
+    "owner": 4,
+    "liked_by": [
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 14,
+  "fields": {
+    "post_text": "I saw Peter's brand new chickens and just had to share mine!!! Well she's not brand new  :)",
+    "created_at": "2021-01-28T17:03:02.793Z",
+    "post_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5JygunFAgZm-EQFnZqjMaTLyrc-d4XWjQBA&usqp=CAU",
+    "owner": 5,
+    "liked_by": [
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 15,
+  "fields": {
+    "post_text": "Pretty good hull today. Guess who's having salad tonight!",
+    "created_at": "2021-01-28T17:04:45.270Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTEhIWFRUXGBcWFhcXFRgZFxoXFxgWFxUWFRcYHSggGBolGxUXITEhJSkrLi4uFx8zODMtNygtLi0BCgoKDg0OGhAQGy0lHyYtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBEQACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAAEBQIDBgcBAAj/xAA+E",
+    "owner": 6,
+    "liked_by": [
+      8,
+      9,
+      10,
+      7
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 16,
+  "fields": {
+    "post_text": "I'm right behind you Kate!!",
+    "created_at": "2021-01-28T17:06:23.816Z",
+    "post_image": "https://www.mymotherlode.com/wp-content/uploads/2020/08/romaine-lettuce-medium_0-1280x720.jpg",
+    "owner": 7,
+    "liked_by": [
+      4,
+      5,
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 17,
+  "fields": {
+    "post_text": "Phewww there is so much!!! Only only planted a few seeds.",
+    "created_at": "2021-01-28T17:07:42.130Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUUExMWFhUXGSEYGBgYGRogHxogHyAbHiEhHx8fICggHyElHRgYITIiJSorLi4uHx8zODMtNygtLisBCgoKDg0OGxAQGzUlICY1LS0tLSstLS8tLS01LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAMIBAwMBIgACEQEDEQH/xAAcAAACAwEBAQEAAAAAAAAAAAAFBgMEBwACAQj/xAA+E",
+    "owner": 8,
+    "liked_by": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 18,
+  "fields": {
+    "post_text": "This have been such an effort to grow but they sure look great",
+    "created_at": "2021-01-28T17:09:07.436Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFhUXGRgaGBgYGBgYGBgXHRgXHhgXGBcYHSggGRolHRcXITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGxAQGzImICUwLS0vLS8tLS0tLy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAMIBAwMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAEBQMGAAECBwj/xABAE",
+    "owner": 9,
+    "liked_by": [
+      8,
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 19,
+  "fields": {
+    "post_text": "My favourite new picture. Enjoy!!",
+    "created_at": "2021-01-28T17:09:57.836Z",
+    "post_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYr67_eDXtZ69nKtnPDTthPCOyWRtqXDIL-Q&usqp=CAU",
+    "owner": 10,
+    "liked_by": [
+      10,
+      5,
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 20,
+  "fields": {
+    "post_text": "Mmmm, tastes so much better than the supermarket stuff!!",
+    "created_at": "2021-01-28T17:11:22.808Z",
+    "post_image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMVFRUWFxcaFRYYGBYXGBcaFxgWFxcWGBoYHSggGBslHRcXITEhJSkrLi4uGB8zODMtNygtLisBCgoKDg0OGxAQGy0lICUtLS0vMC0tLS0tLTUtLS0tLS0tLS0tLS0tLS0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIALcBEwMBIgACEQEDEQH/xAAbAAACAgMBAAAAAAAAAAAAAAADBAIFAAEGB//EADwQA",
+    "owner": 11,
+    "liked_by": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
   }
 }
 ]
