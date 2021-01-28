@@ -1,0 +1,59 @@
+[
+{
+  "model": "posts.post",
+  "pk": 1,
+  "fields": {
+    "post_text": "this is a changed post",
+    "created_at": "2021-01-27T16:19:25.299Z",
+    "post_image": "this is a changed image",
+    "owner": 2,
+    "liked_by": [
+      2
+    ]
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 3,
+  "fields": {
+    "post_text": "1st post",
+    "created_at": "2021-01-28T14:46:55.139Z",
+    "post_image": "1st post",
+    "owner": 2,
+    "liked_by": []
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 4,
+  "fields": {
+    "post_text": "2nd post",
+    "created_at": "2021-01-28T14:47:13.922Z",
+    "post_image": "2nd post",
+    "owner": 2,
+    "liked_by": []
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 5,
+  "fields": {
+    "post_text": "3rd post",
+    "created_at": "2021-01-28T14:47:40.102Z",
+    "post_image": "3rd post",
+    "owner": 2,
+    "liked_by": []
+  }
+},
+{
+  "model": "posts.post",
+  "pk": 6,
+  "fields": {
+    "post_text": "4th post",
+    "created_at": "2021-01-28T14:47:50.353Z",
+    "post_image": "4th post",
+    "owner": 2,
+    "liked_by": []
+  }
+}
+]

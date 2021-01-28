@@ -13,6 +13,8 @@ from .models import Post
 class PostListView(APIView):
     """ Hanldles GET and POST requests made to /posts/ endpoint  """
 
+    permission_classes = (IsAuthenticated, )
+
     def get(self, _request):
         posts = Post.objects.all().order_by('-created_at')
         serialized_post = PopulatedPostSerializer(posts, many=True)

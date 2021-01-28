@@ -1,0 +1,44 @@
+[
+{
+  "model": "jwt_auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$P4P8zq5jKI8H$gG4XyyUPqnv0GXn5FpL9lFDpHypHDiEO4EWXC7s+ut0=",
+    "last_login": "2021-01-28T15:08:35.560Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-01-27T13:20:20.691Z",
+    "email": "admin@mail.com",
+    "bio": "",
+    "profile_image": "",
+    "groups": [],
+    "user_permissions": [],
+    "friended_by": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$W8bUTvaI2JlN$6087VvvXepK4Qhr9K1jQIRiMUSteSHz6mKzEX97R9/k=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "tim",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-01-27T13:25:22.563Z",
+    "email": "tim@mail.com",
+    "bio": "Hi I'm Tim",
+    "profile_image": "My photo",
+    "groups": [],
+    "user_permissions": [],
+    "friended_by": []
+  }
+}
+]
