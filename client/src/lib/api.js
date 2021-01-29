@@ -12,3 +12,8 @@ export function registerUser(formdata){
 export function loginUser(formdata){
   return axios.post(`${baseUrl}/auth/login/`, formdata)
 }
+
+//*Gets all posts
+export function getAllPosts(){
+  return axios.get(`${baseUrl}/posts`)
+}
