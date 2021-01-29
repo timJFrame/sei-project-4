@@ -6,3 +6,18 @@
     width: 100%;
 }
 
+.profile-preview-image-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .preview-image{
+        max-width: 200px;
+        max-height: 200px;
+        border-radius:60%
+    }
+}
+
+.form-error-message{
+    color: red;
+}

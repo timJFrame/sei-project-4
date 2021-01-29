@@ -1,8 +1,15 @@
 import React from 'react'
+import useForm from '../../utils/useform'
+import ImageUploadField from '../../utils/ImageUpload'
+import { registerUser } from '../../lib/api'
+import { useHistory } from 'react-router-dom'
 
 function Register(){
 
-  const [formdata, setFormdata] = React.useState({
+  const history = useHistory(
+    
+  )
+  const { handleChange, formdata, errors, setErrors } = useForm({
     username: '',
     email: '',
     password: '',
@@ -11,23 +18,28 @@ function Register(){
     profile_image: ''
   })
 
-  const handleChange = (e) => {
-    setFormdata({ ...formdata, [e.target.name]: e.target.value })
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await registerUser(formdata)
+      history.push('/login')
+    } catch (err){
+      setErrors(err.response.data)
+    }
   }
-
-  console.log(formdata)
 
   return (
     <section className="form-container">
-      <form>
+      <form onSubmit={handleSubmit}>
         <fieldset>
           <label>Username</label>
           <input type="text" 
             name="username"
             value={formdata.username}
             onChange={handleChange}
-            placeholder="Username"/>
-
+            placeholder="Username"
+          />
+          {errors.username && <p className="form-error-message">{errors.username}</p>}
 
           <label>Email</label>
           <input type="text" 
@@ -35,6 +47,7 @@ function Register(){
             value={formdata.email}
             onChange={handleChange}
             placeholder="Email"/>
+          {errors.email && <p className="form-error-message">{errors.email}</p>}
 
 
           <label>Password</label>
@@ -43,6 +56,7 @@ function Register(){
             value={formdata.password}
             onChange={handleChange}
             placeholder="Password"/>
+          {errors.password && <p className="form-error-message">{errors.password}</p>}
 
 
           <label>Password Confirmation</label>
@@ -51,6 +65,7 @@ function Register(){
             value={formdata.password_confirmation}
             onChange={handleChange}
             placeholder="Password Confirmation"/>
+          {errors.passwordConfirmation && <p className="form-error-message">{errors.passwordConfirmation}</p>}
 
 
           <label>Bio</label>
@@ -59,8 +74,15 @@ function Register(){
             value={formdata.bio}
             onChange={handleChange}
             placeholder="Tell why you love gardening"/>
-          <label>Profile Photo</label>
-          <input type="file"/>
+          {errors.bio && <p className="form-error-message"> {errors.bio}</p>} 
+
+          <ImageUploadField
+            name="profile_image"
+            value={formdata.profile_image}
+            labelText="Profile Image"
+            onChange={handleChange}
+          />
+          {errors.profile_image && <p className="form-error-message">{errors.profileImage}</p>}
 
 
         </fieldset>
