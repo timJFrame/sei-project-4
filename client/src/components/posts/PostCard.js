@@ -1,13 +1,37 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { postComment } from '../../lib/api'
+import  useForm  from '../../utils/useform'
 
-function PostCard({ owner, createdAt, postText, postImage, comments, likedBy }){
+function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy, getAllPosts, setPosts }){
 
+  //* Reformats the date from post request
   const reorderDate = (date) => {
     const dateArray = date.slice(0, 10).split('-')
     const time = date.slice(11, 16)
     return `${time}, ${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`
   }
+
+  const { formdata, handleChange, setFormdata } = useForm({
+    text: '',
+    post: `${id}`
+  })
+
+
+
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      console.log(formdata)
+      await postComment(formdata)
+      setFormdata({ text: '' })
+      const { data } =  await getAllPosts()
+      setPosts(data)
+    } catch (err){
+      console.log(err)
+    }
+  }
+
 
 
   return (
@@ -37,7 +61,7 @@ function PostCard({ owner, createdAt, postText, postImage, comments, likedBy }){
             comments.map(comment => (
               <>
             
-                <div className="user-comment-text">
+                <div key={comment.id} className="user-comment-text">
                   <p><strong>{comment.owner.username}</strong></p>
                   <p>{comment.text}</p>
                 </div>
@@ -60,9 +84,16 @@ function PostCard({ owner, createdAt, postText, postImage, comments, likedBy }){
     
 
    
-      <form className="comment-form">
+      <form className="comment-form" onSubmit={handleCommentSubmit}> 
         <fieldset>
-          <input type="text" placeholder="Write a comment" className="comment-input"/>
+          <input 
+            type="text" 
+            placeholder="Write a comment" 
+            className="comment-input"
+            name="text"
+            value={formdata.text}
+            onChange={handleChange}
+          />
         </fieldset>
         <input className="button-outline form-sumbit button-small" type="submit" value="send"/>
       </form>

@@ -20,7 +20,9 @@ function PostIndex(){
     getData()
   }, [])
 
-  console.log(posts)
+ 
+
+
 
 
   return (
@@ -38,7 +40,10 @@ function PostIndex(){
       </form>
       {posts ?
         posts.map(post => (
-          <PostCard key={post.id} {...post}/>
+          <PostCard 
+            getAllPosts={getAllPosts}
+            setPosts={setPosts}
+            key={post.id} {...post}/>
         ))
         :
         <h2>Loading</h2>
