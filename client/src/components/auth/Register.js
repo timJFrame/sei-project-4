@@ -5,10 +5,9 @@ import { registerUser } from '../../lib/api'
 import { useHistory } from 'react-router-dom'
 
 function Register(){
+  const history = useHistory()
 
-  const history = useHistory(
-    
-  )
+  //*Captures users data from form
   const { handleChange, formdata, errors, setErrors } = useForm({
     username: '',
     email: '',
@@ -18,6 +17,7 @@ function Register(){
     profile_image: ''
   })
 
+  //*Hanldes submitting post request to database to register new user
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {

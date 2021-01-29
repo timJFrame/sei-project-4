@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom'
 function Feed(){
   return (
     <section 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
       className="page-feed-container">
       <form className="user-post-form">
         <fieldset>
@@ -25,7 +22,7 @@ function Feed(){
           <div className="user-post-details">
             <img src="https://scontent-lhr8-2.xx.fbcdn.net/v/t1.0-9/49535901_10156184605368865_8827419087735881728_n.jpg?_nc_cat=105&ccb=2&_nc_sid=84a396&_nc_ohc=2S4Gz0T63bYAX_nlfzE&_nc_ht=scontent-lhr8-2.xx&oh=9c72529ee8cae39f517cda00df991fc2&oe=6032ED10" alt="claire" className="user-post-image"/>
             <div className="user-post-date-name">
-              <h5 user-post-name><strong>Claire</strong></h5>
+              <h5 className="user-post-name"><strong>Claire</strong></h5>
               <p>Date and Time</p>
             </div>
           </div>
@@ -61,7 +58,7 @@ function Feed(){
         <div className="user-post-details">
           <img src="https://scontent-lhr8-2.xx.fbcdn.net/v/t1.0-9/49535901_10156184605368865_8827419087735881728_n.jpg?_nc_cat=105&ccb=2&_nc_sid=84a396&_nc_ohc=2S4Gz0T63bYAX_nlfzE&_nc_ht=scontent-lhr8-2.xx&oh=9c72529ee8cae39f517cda00df991fc2&oe=6032ED10" alt="claire" className="user-post-image"/>
           <div className="user-post-date-name">
-            <h5 user-post-name><strong>Claire</strong></h5>
+            <h5 className="user-post-name"><strong>Claire</strong></h5>
             <p>Date and Time</p>
           </div>
         </div>
