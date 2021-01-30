@@ -31,6 +31,16 @@ export function postUserPost(formdata){
   return axios.post(`${baseUrl}posts/`, formdata, headers())
 }
 
+//*Get Single Post
+export function getSinglePost(id){
+  return axios.get(`${baseUrl}posts/${id}/`, headers())
+}
+
+//*Edit a single job
+export function editSinglePost(id, formdata){
+  return axios.put(`${baseUrl}posts/${id}/`, formdata, headers())
+}
+
 //*Post a comment on a post
 export function postComment(formdata){
   return axios.post(`${baseUrl}comments/`, formdata, headers())

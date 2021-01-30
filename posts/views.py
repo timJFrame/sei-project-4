@@ -45,7 +45,7 @@ class PostDetailView(APIView):
 
     def get(self, _request, pk):
         post = self.get_post(pk=pk)
-        serialized_post = PopulatedPostSerializer(post)
+        serialized_post = PostSerializer(post)
         return Response(serialized_post.data, status=status.HTTP_200_OK)
 
     def put(self, request, pk):
