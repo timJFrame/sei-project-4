@@ -1,7 +1,9 @@
 import React from 'react'
 
-import { getAllPosts } from '../../lib/api'
+import { getAllPosts, postUserPost } from '../../lib/api'
 import PostCard from './PostCard'
+import useForm from '../../utils/useform'
+import ImageUploadField from '../../utils/ImageUpload'
 
 
 function PostIndex(){
@@ -21,21 +23,48 @@ function PostIndex(){
   }, [])
 
  
+  const { formdata, setFormdata, handleChange } = useForm({
+    postText: '',
+    postImage: ''
+  })
 
+  const handlePostSubmit = async (e) =>{
+    e.preventDefault()
+    try {
+      await postUserPost(formdata)
+      setFormdata({ postText: '', postImage: '' })
+      const { data } = await getAllPosts()
+      setPosts(data)
+    } catch (err){
+      console.log(err)
+    }
+  }
 
-
+ 
 
   return (
     <section 
       className="page-feed-container">
-      <form className="user-post-form">
+      <form className="user-post-form" onSubmit={handlePostSubmit}>
         <fieldset>
-          <textarea placeholder="Write your post here...." className="create-post-text-area"/>
+          <textarea 
+            name="postText"
+            value={formdata.postText}
+            onChange={handleChange}
+            placeholder="Write your post here...." 
+            className="create-post-text-area"/>
+
           <div className="image-selector">
-            <label>Select a Photo</label>
-            <input type="file"/>
+            <ImageUploadField
+              name="postImage"
+              value={formdata.postImage}
+              onChange={handleChange}
+              labelText="Post Image"
+            />
           </div>
         </fieldset>
+
+        
         <input className="button-outline form-sumbit " type="submit" value="Create Post"/>
       </form>
       {posts ?

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { postComment } from '../../lib/api'
+import { postComment, postLike } from '../../lib/api'
 import  useForm  from '../../utils/useform'
+// import ImageUpload from '../../utils/ImageUpload'
 
 function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy, getAllPosts, setPosts }){
 
@@ -18,7 +19,7 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
   })
 
 
-
+  //*Handles submitting a comment vis post request
   const handleCommentSubmit = async (e) => {
     e.preventDefault()
     try {
@@ -33,6 +34,19 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
   }
 
 
+  //*Handles liking a post
+  const handleLike = async (id) => {
+    try {
+      console.log(id)
+      await postLike(id)
+      const { data } = await getAllPosts()
+      setPosts(data)
+    } catch (err){
+      console.log(err)
+    }
+  }
+
+ 
 
   return (
     <article className="user-post-container">
@@ -75,7 +89,9 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
         {likedBy ?
 
           <div className="likes-feed-view-container">
+            <button className="button-outline view-like-button" onClick={() => handleLike(id)}>Like</button>
             <p className="view-like">{`${likedBy.length} likes`}</p>
+
           </div>
           :
           <p></p>

@@ -90,15 +90,18 @@ padding: 15px 10px 10px 10px;
 
 .likes-feed-view-container{
     display: flex;
+    flex-direction: column;
     flex: 1;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     margin: 10px;
+    padding: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     .view-like{
       margin: 0;
     }
+   
 }
 
 

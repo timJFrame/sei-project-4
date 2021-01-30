@@ -13,20 +13,30 @@ const baseUrl = '/api/'
 
 //*Register a user
 export function registerUser(formdata){
-  return axios.post(`${baseUrl}/auth/register/`, formdata)
+  return axios.post(`${baseUrl}auth/register/`, formdata)
 }
 
 //*Logs a user in
 export function loginUser(formdata){
-  return axios.post(`${baseUrl}/auth/login/`, formdata)
+  return axios.post(`${baseUrl}auth/login/`, formdata)
 }
 
 //*Gets all posts
 export function getAllPosts(){
-  return axios.get(`${baseUrl}/posts`)
+  return axios.get(`${baseUrl}posts`)
+}
+
+//*Post a post
+export function postUserPost(formdata){
+  return axios.post(`${baseUrl}posts/`, formdata, headers())
 }
 
 //*Post a comment on a post
 export function postComment(formdata){
   return axios.post(`${baseUrl}comments/`, formdata, headers())
+}
+
+//*Like a post
+export function postLike(id){
+  return axios.post(`${baseUrl}posts/${id}/like/`, null, headers())
 }
