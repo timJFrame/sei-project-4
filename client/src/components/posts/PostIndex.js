@@ -1,4 +1,5 @@
 import React from 'react'
+import Loader from 'react-loader-spinner'
 
 import { getAllPosts, postUserPost } from '../../lib/api'
 import PostCard from './PostCard'
@@ -75,7 +76,7 @@ function PostIndex(){
             key={post.id} {...post}/>
         ))
         :
-        <h2>Loading</h2>
+        <Loader type="ThreeDots" color="#85837f" height={80} width={80} className="loading-spinner"/>
 
       }
     

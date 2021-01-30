@@ -39,5 +39,5 @@ export function getUserId(){
 export function isOwner(userId){
   const payload = getPayLoad()
   if (!payload) return false
-  return userId === payload.sub()
+  return userId === payload.sub
 }

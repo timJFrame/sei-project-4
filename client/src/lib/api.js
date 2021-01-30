@@ -21,6 +21,21 @@ export function loginUser(formdata){
   return axios.post(`${baseUrl}auth/login/`, formdata)
 }
 
+//*Gets a single users profile
+export function getSingleUser(id){
+  return axios.get(`${baseUrl}auth/user/${id}`, headers())
+}
+
+//* The profile of the user currently logged in
+export function getCurrentUser(){
+  return axios.get(`${baseUrl}auth/profile/`, headers())
+}
+
+//*Friends a user
+export function friendUser(id){
+  return axios.post(`${baseUrl}auth/user/${id}/friend/`, null, headers())
+}
+
 //*Gets all posts
 export function getAllPosts(){
   return axios.get(`${baseUrl}posts`)

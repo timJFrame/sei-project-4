@@ -1,3 +1,5 @@
+//*USED BY PROFILE VIEW AND SINGLE USER VIEW
+
 .profile-container{
     max-width: 500px;
  
@@ -16,7 +18,16 @@
 
 .name-email-div{
 margin-right: 220px;
-
+h3{
+    margin: 2px;
+}
+h5{
+margin: 2px;
+}
+p{
+    font-size: 0.7em;
+    padding-top: 5px;
+}
 }
 
 .user-profile-image{
@@ -34,35 +45,57 @@ margin-right: 220px;
 }
 
 
-.friends-profile-view{
-    padding-top: 30px;
+.profile-view-reuse-conatiner{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+    width: 100%;
+    margin: 30px 0;
 }
 
-.friends-title{
-    padding-top: 15px;
-    margin-bottom: -30px;
+.reuse-container-title{
     display: flex;
-    text-align: right;
+    justify-content: center;
 }
 
-.friend-title{
-    text-align: right;
+.reuse-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.image-and-name{
+
+
+.image-and-text{
     margin: 0 10px;
 }
 
-.friend-profile-image{
+.reuse-image{
     max-width: 100px;
     max-height: 100px;
     border-radius: 5px;
 }
 
-.profile-view-friend-name{
+.reuse-text{
     text-align: center;
+}
+
+
+
+
+
+
+
+//*USED BY SINGLE USER VIEW ONLY
+
+.user-profile-freind-button-container{
+    margin: 30px 0;
+    width: 100%;
+    button{
+        width: 100%;
+    }
 }

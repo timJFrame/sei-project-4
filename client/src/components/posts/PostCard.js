@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom'
 import { postComment, postLike, getSinglePost, editSinglePost } from '../../lib/api'
 import  useForm  from '../../utils/useform'
 import ImageUploadField from '../../utils/ImageUpload'
+import { isOwner } from '../../lib/auth'
 
 function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy, getAllPosts, setPosts }){
+
+  const isPostOwner = isOwner(owner.id)
 
   const [edit, setEdit] = React.useState(false)
   const [editImage, setEditImage] = React.useState(false)
@@ -54,7 +57,7 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
     }
   }
 
-
+  //*Variable to store the id of the post that is clicked on
   let editPostId 
 
   const handleEditLoad = () => {
@@ -68,11 +71,14 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
     getData()
   }
 
+  //* Captures from data when a comment is edited
   const { formdata, handleChange, setFormdata } = useForm({
     postText: '',
     postImage: ''
   })
 
+  
+  //* Handles submitting the put request when a comment is edited
   const handleCommentUpate = async (e) => {
     e.preventDefault()
     try {
@@ -94,7 +100,7 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
       <div className="user-post-details-and-edit-button-container">
        
         <div className="user-post-details">
-          <Link to="/profile">
+          <Link to={`/user/${owner.id}`}>
             <img src={owner.profileImage} alt={owner.username} className="user-post-image"/>
           </Link>
           <div className="user-post-date-name">
@@ -103,13 +109,16 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
           </div>
         </div>
        
-       
-        {!edit &&
+
+        {isPostOwner &&
+       <>
+         {!edit &&
         <div className="edit-button-container">
           <button className="button-outline edit-button" onClick={handleEditLoad}>Edit</button>
         </div>
+         }
+       </>
         }
-
       </div>
     
     

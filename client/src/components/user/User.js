@@ -1,7 +1,72 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
+import { getSingleUser, friendUser } from '../../lib/api'
+
+
+
 
 function User(){
-  return <h1>User</h1>
+  const { id } = useParams()
+
+  const [user, setUser] = React.useState(null)
+
+  React.useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await getSingleUser(id)
+        setUser(data)
+      } catch (err){
+        console.log(err)
+      }
+    }
+    getData()
+  }, [id])
+
+  const handleAddingFriend = async () => {
+    try {
+      await friendUser(id)
+    } catch (err){
+      console.log(err)
+    }
+  }
+
+  //* Reformats the date from post request
+  const reorderDate = (date) => {
+    const dateArray = date.slice(0, 10).split('-')
+    return `${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`
+  }
+
+
+  console.log(user)
+
+  return (
+    <section className="profile-container">
+      {user ? 
+        <>
+          <article className="main-user-details">
+            <div className="name-email-div">
+              <h3 className="username">{user.username}</h3>
+              <h5 className="email">{user.email}</h5>
+              <p className="email">{`Joined: ${reorderDate(user.dateJoined)}`}</p>
+            </div>
+            <div className="user-profile-image-view">
+              <img src={user.profileImage} alt="" className="user-profile-image"/>
+            </div>
+          </article>
+          <article className="user-bio-container">
+            <p className="user-biot-text">
+              {user.bio}
+            </p>
+          </article>
+          <div className="user-profile-freind-button-container">
+            <button className="button-outline" onClick={handleAddingFriend}>Add freind</button>
+          </div>
+        </>
+        :
+        <p>Loading</p>
+      }
+    </section>
+  )
 }
 
 export default User
