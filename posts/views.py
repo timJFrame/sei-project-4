@@ -11,7 +11,7 @@ from .models import Post
 
 
 class PostListView(APIView):
-    """ Hanldles GET and POST requests made to /posts/ endpoint  """
+    """ Handles GET and POST requests made to /posts/ endpoint  """
 
     permission_classes = (IsAuthenticatedOrReadOnly, )
 

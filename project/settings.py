@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'jwt_auth',
     'posts',
     'comments',
+    'chats',
 ]
 
 MIDDLEWARE = [
