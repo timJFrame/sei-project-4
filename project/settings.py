@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'posts',
     'comments',
     'chats',
+    'communications',
 ]
 
 MIDDLEWARE = [
