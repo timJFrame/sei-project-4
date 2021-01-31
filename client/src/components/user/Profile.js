@@ -26,7 +26,7 @@ function Profile(){
     return `${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`
   }
 
-  console.log(currentUser)
+
 
   return (
     <section className = 'profile-container'>

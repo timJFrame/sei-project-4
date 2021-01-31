@@ -100,3 +100,11 @@ class UserFriendView(APIView):
             return Response(serialized_freinded_user.data, status=status.HTTP_201_CREATED)
         except User.DoesNotExist:
             raise NotFound()
+
+class UserListView(APIView):
+    """ Contoller responsible for GET request to /auth """
+
+    def get(self, _request):
+        users = User.objects.all()
+        serialized_user = PopulatedUserSerializer(users, many=True)
+        return Response(serialized_user.data, status=status.HTTP_200_OK)

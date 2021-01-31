@@ -1,6 +1,9 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 
 function Home(){
+  useLocation()
+
   return (
     <section className="page-container">
       <article className="blurb-container">

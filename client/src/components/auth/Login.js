@@ -9,6 +9,7 @@ function Login(){
 
   const history = useHistory()
 
+
   //* Captures a users data from login form and stores it in state to be used in login post request
   const { handleChange, formdata, errors, setErrors } = useForm({
     email: '',  password: ''
@@ -20,6 +21,7 @@ function Login(){
     try {
       const { data } = await loginUser(formdata)
       setToken(data.token)
+    
       history.push('/feed')
     } catch (err){
       setErrors(err.response.data)

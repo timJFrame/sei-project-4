@@ -31,6 +31,12 @@ export function getCurrentUser(){
   return axios.get(`${baseUrl}auth/profile/`, headers())
 }
 
+//*Gets all users
+export function getAllUsers(){
+  return axios.get(`${baseUrl}auth`)
+}
+
+
 //*Friends a user
 export function friendUser(id){
   return axios.post(`${baseUrl}auth/user/${id}/friend/`, null, headers())
@@ -64,4 +70,15 @@ export function postComment(formdata){
 //*Like a post
 export function postLike(id){
   return axios.post(`${baseUrl}posts/${id}/like/`, null, headers())
+}
+
+//*Starts a chat between users
+export function postChat(data){
+  return axios.post(`${baseUrl}chats/`, data, headers())
+}
+
+//*Sends a message from one user to another
+export function postMessage(formdata){
+  return axios.post(`${baseUrl}communications/`, formdata, headers())
+
 }

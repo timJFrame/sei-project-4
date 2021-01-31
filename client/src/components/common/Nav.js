@@ -12,6 +12,7 @@ function Nav(){
   const handleLogout = () => {
     logout()
     history.push('/')
+    
   }
 
 

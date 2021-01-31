@@ -8,6 +8,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/user/Profile'
 import User from './components/user/User'
+import Footer from './components/common/Footer'
 
 function App(){
   return (
@@ -21,6 +22,7 @@ function App(){
         <Route path="/profile" component={Profile}/>
         <Route path="/user/:id" component={User}/>
       </Switch>
+      <Footer/>
     </BrowserRouter>  
   
   )
