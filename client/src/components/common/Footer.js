@@ -4,14 +4,15 @@ import { postChat, getCurrentUser, postMessage } from '../../lib/api'
 import { useLocation } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
 
+
 function Footer(){
   const [users, setUsers ] = React.useState(null)
   const [currentUser, setCurrentUser] = React.useState(null)
+  const [chatboard, setChatboard] = React.useState(false)
   
   //*Global variables
   let userId 
   const isLoggedIn = isAuthenticated()
-  let messageData
   let chatId
   let recieverId
   const { pathname } = useLocation()
@@ -28,6 +29,8 @@ function Footer(){
     }
     getData()
   }, [])
+
+
 
   //*Handles getting user id
   const handleUserSelection = async (e) => {
@@ -50,128 +53,164 @@ function Footer(){
     getData()
   }, [pathname])
 
-  console.log(currentUser)
 
- 
-  //*Handles getting for data for message
+  //*Handles making text field on chat from a controled input
+  const [messageData, setMessageData] = React.useState({
+    text: '',
+    chat: '',
+    receiver: ''
+  })
+
+
+  //*Handles getting for data to send in message body
   const handleMessageChangeDetails =  (chatid, recieverid, e) => {
-    messageData = e.target.value
     chatId = chatid
     recieverId = recieverid
-    console.log(chatId)
-    console.log(recieverId)
+    setMessageData({ messageData, [e.target.name]: e.target.value, chat: chatId, receiver: recieverId })
   }
 
-  //*
+  
+  //*Handles submitting message post request
   const handleMessageSubmit = async (e) => {
     e.preventDefault()
-    await postMessage({ text: messageData, chat: chatId, receiver: recieverId })
+    await postMessage(messageData)
+    setMessageData({ text: '' })
     const { data } = await getCurrentUser()
     setCurrentUser(data)
   }
 
+  //*Handles showing chat
+  const handleShowChat = () => {
+    setChatboard(true)
+  }
+
+  //*Handles closing chat
+  const handleChatClose = () => {
+    setChatboard(false)
+  }
+
 
   return (
-    
-    
-
-    <div className="fixed-footer-container">
+    <>
       {isLoggedIn &&
-      <>
-        <form >
-          <fieldset>
-            <select onChange={handleUserSelection}>
-           
-              {users ? 
-                users.map(user => (
-            
-                  <option 
-                    key={user.id} 
-                    value={user.id}>{user.username}
-                  </option>
-                ))
-                :
-                <option>Loading...</option>
-                
-              }
-            </select>
-          </fieldset>
-        </form>
+      <div className="fixed-footer-container">
 
-        {currentUser?.createdChats ?
-          currentUser.createdChats.map(chat => (
-            <div key={chat.id}className="chat-container">
-              <h5>{`Chat with: ${chat.recipient.username} `}</h5>
-              {chat.communications ?
-                chat.communications.map(message => (
-                  <div key={message.id}>
-                    <p>{`${message.sender.username} ${message.text}`} </p>
-                  </div>
-                  
-                ))
-                :
-                <p>No chats yet</p>
-              }
-             
-
-
-
-              <form className="chat-form" onSubmit={handleMessageSubmit}>
-                <fieldset>
-                  <input
-                    type="text"
-                    placeholder="Message"
-                    onChange={(e)=> handleMessageChangeDetails(chat.id, chat.recipient.id , e)}
-                  />
-                  
-                </fieldset>
-                <button className="button-outline">send</button>
-              </form>
-            </div>
-          ))
-          :
-          <p></p>
+        {!chatboard &&
+          <div className="show-chat-button">
+            <button className="button-outline button-small" onClick={handleShowChat}>Open Chat</button>
+          </div>
         }
-
-        {currentUser?.receivedChats ?
-          currentUser.receivedChats.map(chat => (
-            <div key={chat.id}className="chat-container">
-              <h5>{`Chat with: ${chat.recipient.username} `}</h5>
-              {chat.communications ?
-                chat.communications.map(message => (
-                  <div key={message.id}>
-                    <p>{`${message.sender.username} ${message.text}`} </p>
-                  </div>
-                  
-                ))
-                :
-                <p>No chats yet</p>
-              }
-             
-
-
-
-              <form className="chat-form" onSubmit={handleMessageSubmit}>
-                <fieldset>
-                  <input
-                    type="text"
-                    placeholder="Message"
-                    onChange={(e)=> handleMessageChangeDetails(chat.communications[0].chat, chat.communications[0].sender.id , e)}
-                  />
-                  
-                </fieldset>
-                <button className="button-outline">send</button>
-              </form>
-            </div>
-          ))
-          :
-          <p></p>
-        }
-
-      </>
-      }
-    </div>
     
+        {chatboard &&
+        
+          <>
+            <div className="hide-chat-button">
+              <button className="button-outline button-small" onClick={handleChatClose}>Close chat</button>
+            </div>
+            
+            <div className="chat-master-container">
+              <div className="chat-selection-container">
+                <p>Choose someone to chat with</p>
+                
+                <form >
+                  <fieldset>
+                    <select onChange={handleUserSelection}>
+           
+                      {users ? 
+                        users.map(user => (
+            
+                          <option 
+                            key={user.id} 
+                            value={user.id}>
+                    
+                            {user.username}
+                       
+                    
+                          </option>
+                        ))
+                        :
+                        <option>Loading...</option>
+                
+                      }
+                    </select>
+                  </fieldset>
+                </form>
+              </div>
+
+
+              {currentUser?.createdChats ?
+                currentUser.createdChats.map(chat => (
+                  <div key={chat.id}className="chat-container">
+                    <h5>{`You're chatting with ${chat.recipient.username} `}</h5>
+                    {chat.communications ?
+                      chat.communications.map(message => (
+                        <div key={message.id}>
+                          <p><strong>{`${message.sender.username}: `}</strong> {`${message.text}`} </p>
+                        </div>
+                  
+                      ))
+                      :
+                      <p>No chats yet</p>
+                    }
+             
+                    <form className="chat-form" onSubmit={handleMessageSubmit}>
+                      <fieldset>
+                        <input
+                          type="text"
+                          name="text"
+                          value={messageData.text}
+                          placeholder="Message"
+                          onChange={(e)=> handleMessageChangeDetails(chat.id, chat.recipient.id , e)}
+                        />
+                  
+                      </fieldset>
+                      <button className="button-outline">send</button>
+                    </form>
+                  </div>
+                ))
+                :
+                <p></p>
+              }
+
+              {currentUser?.receivedChats ?
+                currentUser.receivedChats.map(chat => (
+                  <div key={chat.id}className="chat-container">
+                    <h5>{`You're chatting with ${chat.owner.username} `}</h5>
+                    {chat.communications ?
+                      chat.communications.map(message => (
+                        <div key={message.id}>
+                          <p><strong>{`${message.sender.username}: `}</strong> {`${message.text}`} </p>
+                        </div>
+                  
+                      ))
+                      :
+                      <p>No chats yet</p>
+                    }
+             
+                    <form className="chat-form" onSubmit={handleMessageSubmit}>
+                      <fieldset>
+                        <input
+                          type="text"
+                          name="text"
+                          value={messageData.text}
+                          placeholder="Message"
+                          onChange={(e)=> handleMessageChangeDetails(chat.communications[0].chat, chat.communications[0].sender.id , e)}
+                        />
+                  
+                      </fieldset>
+                      <button className="button-outline">send</button>
+                    </form>
+                  </div>
+                ))
+                :
+                <p></p>
+              }
+            </div>
+          </>
+        }
+      </div>
+      }
+    </>
 
 
   )

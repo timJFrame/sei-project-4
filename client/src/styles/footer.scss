@@ -3,20 +3,34 @@
     bottom: 0;
     left: 0;
     right: 0;
-  
     display: flex;
-   
-    align-content: center;
-    
+   flex-direction: column;
     padding:15px;
-    margin: 20px;
+    margin:5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     background-color: white;
+    
+}
+
+.chat-master-container{
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    padding:15px;
+    margin:5px;
     button{
         margin-left: 10px;
     }
 }
+
+.chat-selection-container{
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding:10px;
+}
+
 
 .chat-container{
     display: flex;
@@ -26,11 +40,12 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding:10px;
-    width: 300px;
-    max-height: 100px;
+    width: 225px;
+    max-height: 125px;
     overflow: scroll;
 }
 
 .chat-form{
    display: flex;
 }
+

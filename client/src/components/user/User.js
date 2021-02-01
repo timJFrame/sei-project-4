@@ -72,11 +72,13 @@ function User(){
               {user.bio}
             </p>
           </article>
+
           { addedFriendMessage &&
-          <div>
-            <p>{`Great you added ${user.username} to your friends list`}</p>
+          <div className="added-friend-message-container">
+            <p ><strong>{`Great ${user.username} has been added to your friends list`}</strong></p>
           </div>
           }
+
           <div className="user-profile-freind-button-container">
             <button className="button-outline" onClick={handleAddingFriend}>Add freind</button>
           </div>

@@ -4,9 +4,9 @@ import Loader from 'react-loader-spinner'
 
 
 function Profile(){
-
   const [currentUser, setCurrentUser] = React.useState(null)
 
+  //*Gets current users details via get request
   React.useEffect(() => {
     const getData = async () => {
       try {
@@ -25,7 +25,6 @@ function Profile(){
     const dateArray = date.slice(0, 10).split('-')
     return `${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`
   }
-
 
 
   return (
@@ -54,7 +53,7 @@ function Profile(){
         
           <article className="profile-view-reuse-conatiner">
             <div className="reuse-container-title">
-              <h3>Friended by</h3>
+              <h3>Friends</h3>
             </div>
             <div className="comments-made-container">
               <div  className="image-and-text" >
@@ -79,7 +78,6 @@ function Profile(){
                       )) 
                       :
                       <Loader type="ThreeDots" color="#85837f" height={80} width={80} className="loading-spinner"/>
-
                     }
                   </tbody>
                 </table>
@@ -105,20 +103,15 @@ function Profile(){
                   </thead>
                   <tbody>
                     {currentUser.createdPosts ?
-                      currentUser.createdPosts.map(post => (
-                 
-
+                      currentUser.createdPosts.map(post => (                
                         <tr key={post.id}>
                           <td>{reorderDate(post.createdAt)}</td>
                           <td><img src={post.postImage} alt="post image"/></td>
                           <td>{post.postText}</td>
                         </tr>
-                        
-                   
                       )) 
                       :
                       <Loader type="ThreeDots" color="#85837f" height={80} width={80} className="loading-spinner"/>
-
                     }
                   </tbody>
                 </table>

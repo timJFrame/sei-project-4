@@ -93,8 +93,9 @@ class UserFriendView(APIView):
 
     def post(self, request, pk):
         try:
-            user_to_friend = User.objects.get(pk=pk)
-            user_to_friend.friended_by.add(request.user.id)
+            user_to_friend = request.user
+            user_to_add = User.objects.get(pk=pk)
+            user_to_friend.friended_by.add(user_to_add)
             user_to_friend.save()
             serialized_freinded_user = PopulatedUserSerializer(user_to_friend)
             return Response(serialized_freinded_user.data, status=status.HTTP_201_CREATED)
