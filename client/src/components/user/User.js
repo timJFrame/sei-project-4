@@ -9,6 +9,7 @@ function User(){
   const { id } = useParams()
 
   const [user, setUser] = React.useState(null)
+  const [addedFriendMessage, setAddedFriendMessage] = React.useState(false)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -22,13 +23,26 @@ function User(){
     getData()
   }, [id])
 
+  //*Remove added friend message
+  const removeAddedFriendMessage = () =>  {
+    setTimeout(()=> {
+      setAddedFriendMessage(false) 
+    }, 2000)
+  } 
+
+
   const handleAddingFriend = async () => {
     try {
       await friendUser(id)
+      setAddedFriendMessage(true)
+      removeAddedFriendMessage()
     } catch (err){
       console.log(err)
     }
   }
+
+
+
 
   //* Reformats the date from post request
   const reorderDate = (date) => {
@@ -58,6 +72,11 @@ function User(){
               {user.bio}
             </p>
           </article>
+          { addedFriendMessage &&
+          <div>
+            <p>{`Great you added ${user.username} to your friends list`}</p>
+          </div>
+          }
           <div className="user-profile-freind-button-container">
             <button className="button-outline" onClick={handleAddingFriend}>Add freind</button>
           </div>

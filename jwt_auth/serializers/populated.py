@@ -12,4 +12,5 @@ class PopulatedUserSerializer(UserSerializer):
     friended_by = NestedUserSerializer(many=True)
     posted_comments = PopulatedCommentSerializer(many=True)
     created_chats = PopulatedChatSerializer(many=True)
+    received_chats = PopulatedChatSerializer(many=True)
     

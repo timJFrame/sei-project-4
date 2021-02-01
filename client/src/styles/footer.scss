@@ -2,24 +2,35 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    right: 70%;
-    max-height: 80vh;
+    right: 0;
+  
     display: flex;
-    justify-content: center;
+   
     align-content: center;
-    flex-direction: column;
+    
     padding:15px;
     margin: 20px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
+    background-color: white;
     button{
         margin-left: 10px;
     }
 }
 
 .chat-container{
+    display: flex;
+    flex-direction: column;
+   align-content: flex-end;
     margin: 5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    padding:5px;
+    padding:10px;
+    width: 300px;
+    max-height: 100px;
+    overflow: scroll;
+}
+
+.chat-form{
+   display: flex;
 }
