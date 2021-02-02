@@ -1,7 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { getSingleUser, friendUser } from '../../lib/api'
-
+import { motion } from 'framer-motion'
+import Loader from 'react-loader-spinner'
 
 
 
@@ -50,7 +51,11 @@ function User(){
 
 
   return (
-    <section className="profile-container">
+    <motion.section 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="profile-container">
       {user ? 
         <>
           <article className="main-user-details">
@@ -75,6 +80,36 @@ function User(){
           </div>
           }
 
+          <article className="profile-view-reuse-conatiner">
+            <div className="reuse-container-title">
+              <h3>Friends</h3>
+            </div>
+            <div className="friends-container">
+              {user.friendedBy ?
+                user.friendedBy.map(friend => (
+                 
+                  <div key={friend.id} className="friend-image-and-name">
+                    <div className="friend-image">
+                      <img src={friend.profileImage} alt={friend.name} className="reuse-image"/>
+                    </div>
+                    <div className="friend-name-container">
+                      <p>{friend.username}</p>
+                    </div>
+                  </div> 
+                   
+                )) 
+                :
+                <Loader type="ThreeDots" color="#85837f" height={80} width={80} className="loading-spinner"/>
+              }
+
+
+
+             
+
+            </div>
+          </article>
+
+
           <div className="user-profile-friend-button-container">
             <button className="button-green button-outline" onClick={handleAddingFriend}>Add friend</button>
           </div>
@@ -82,7 +117,7 @@ function User(){
         :
         <p>Loading</p>
       }
-    </section>
+    </motion.section>
   )
 }
 

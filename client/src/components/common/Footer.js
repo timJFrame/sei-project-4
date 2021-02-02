@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
 
 
+
 function Footer(){
   const [users, setUsers ] = React.useState(null)
   const [currentUser, setCurrentUser] = React.useState(null)
@@ -18,8 +19,7 @@ function Footer(){
   
   const { pathname } = useLocation()
 
- 
- 
+
   //*Gets current user
   React.useEffect(() =>{
     const getData = async () => {
@@ -42,8 +42,6 @@ function Footer(){
   const handleUserSelection = async (e) => {
     userId = e.target.value
     if (parseInt(userId) !== currentUser.id){
-      console.log(typeof userId)
-      console.log(typeof currentUser.id)
       await postChat({ recipient: userId })
     }
     const { data } = await getCurrentUser()
@@ -79,6 +77,7 @@ function Footer(){
     chatId = chatid
     recieverId = recieverid
     setMessageData({ ...messageData, [e.target.name]: e.target.value, chat: chatId, receiver: recieverId })
+    
   }
 
   
@@ -193,7 +192,7 @@ function Footer(){
 
               {currentUser?.receivedChats ?
                 currentUser.receivedChats.map(chat => (
-                  <div key={chat.id}className="chat-container">
+                  < div key={chat.id}className="chat-container">
                     <h5>{`You're chatting with ${chat.owner.username} `}</h5>
                     {chat.communications ?
                       chat.communications.map(message => (

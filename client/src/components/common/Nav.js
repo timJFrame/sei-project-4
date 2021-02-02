@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useHistory, useLocation } from 'react-router-dom'
 import {  logout, isAuthenticated } from '../../lib/auth'
 
+
 function Nav(){
 
   const isLoggedIn = isAuthenticated()

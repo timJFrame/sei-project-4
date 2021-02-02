@@ -1,9 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { postComment, postLike, getSinglePost, editSinglePost, deleteComment, deleteSinglePost } from '../../lib/api'
 import  useForm  from '../../utils/useform'
 import ImageUploadField from '../../utils/ImageUpload'
 import { isOwner } from '../../lib/auth'
+
 
 function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy, getAllPosts, setPosts }){
 
@@ -120,7 +122,11 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
   }
 
   return (
-    <article className="user-post-container">
+    <motion.article
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="user-post-container">
       
    
       <div className="user-post-details-and-edit-button-container">
@@ -241,7 +247,7 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
         <button className="button-green button-outline form-sumbit " type="submit" >Send</button>
       </form>
 
-    </article>
+    </motion.article>
 
 
         

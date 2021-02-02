@@ -1,5 +1,6 @@
 import React from 'react'
 import { getCurrentUser, deleteSingleUser } from '../../lib/api'
+import { motion } from 'framer-motion'
 import { useHistory } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import {  logout } from '../../lib/auth'
@@ -41,7 +42,11 @@ function Profile(){
   }
 
   return (
-    <section className = 'profile-container'>
+    <motion.section 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className ="profile-container">
       {currentUser ?
       
         <>
@@ -210,7 +215,7 @@ function Profile(){
         :
         <Loader type="ThreeDots" color="#85837f" height={80} width={80} className="loading-spinner"/>
       }
-    </section>
+    </motion.section>
   )
 }
 

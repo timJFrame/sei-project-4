@@ -32,13 +32,18 @@
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:35:36.453Z",
+    "date_joined": "2021-01-28T16:35:36Z",
     "email": "tim@gmail.com",
-    "bio": "I really enjoy gardening. I don't have a very big garden just a few small planting boxes. I grow mostly vegtables and a few herbs",
-    "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_seY1wbAxjeefxubqvSKpUINMZGEUTatSXA&usqp=CAU",
+    "bio": "I really enjoy gardening. I don't have a very big garden just a few small planting boxes. I grow mostly vegetables and a few herbs. I'm looking a buying my own place shortly, so hopefully I can get a bigger garden to. Fingers crossed!!",
+    "profile_image": "https://4x8w25ili9evdw09jixjv1k-wpengine.netdna-ssl.com/wp-content/uploads/2016/04/ian-profile-square-300x300.jpg",
     "groups": [],
     "user_permissions": [],
-    "friended_by": []
+    "friended_by": [
+      9,
+      2,
+      3,
+      6
+    ]
   }
 },
 {
@@ -53,13 +58,23 @@
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:39:08.077Z",
+    "date_joined": "2021-01-28T16:39:08Z",
     "email": "claire@gmail.com",
-    "bio": "I find gardening really relaxing. Nothing beats a day pottering around in the garden. Enjoying the sunshine and nature",
-    "profile_image": "https://www.eharmony.co.uk/dating-advice/wp-content/uploads/2011/04/profilephotos-960x640.jpg",
+    "bio": "I find gardening really relaxing. Nothing beats a day pottering around in the garden. Enjoying the sunshine and nature. Hearing the the birds in the trees and the buzz of the bees. Ahhh so good.",
+    "profile_image": "https://media.creativemornings.com/uploads/user/avatar/58109/AmandaNienaberProfile-square.jpg",
     "groups": [],
     "user_permissions": [],
-    "friended_by": []
+    "friended_by": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
   }
 },
 {
@@ -69,18 +84,23 @@
     "password": "pbkdf2_sha256$216000$qareEemt1YLY$KMw7s7kSbRI/B2ImQhLjTF9cqFFPS151Lor8BpDXbK4=",
     "last_login": null,
     "is_superuser": false,
-    "username": "Peter",
+    "username": "Dave",
     "first_name": "",
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:39:24.408Z",
+    "date_joined": "2021-01-28T16:39:24Z",
     "email": "peter@gmail.com",
-    "bio": "I dont't have much of a green thumb, but thats from the lack of trying. I really enjoy the process of gardening and seeing the fruits of your labour pay off.",
+    "bio": "I don't have much of a green thumb, but thats not from the lack of trying. I really enjoy the process of gardening and seeing the fruits of your labour pay off.",
     "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGqeiMvcMA8ATx6McIgv0QgGq9njL6_9Q9Ww&usqp=CAU",
     "groups": [],
     "user_permissions": [],
-    "friended_by": []
+    "friended_by": [
+      7,
+      2,
+      10,
+      11
+    ]
   }
 },
 {
@@ -95,13 +115,17 @@
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:39:46.913Z",
+    "date_joined": "2021-01-28T16:39:46Z",
     "email": "sarah@gmail.com",
-    "bio": "Im really new to this. I lived in the city all my life and never really had the space to have a garden. I've moved cities and now have a the space to give it a go. I'm really keen to hear everybodys tips and tricks",
-    "profile_image": "https://expertphotography.com/wp-content/uploads/2020/08/profile-photos-2.jpg",
+    "bio": "I'm really new to this. I lived in the city all my life and never really had the space to have a garden. I've moved cities and now have a the space to give it a go. I'm really keen to hear everybody's tips and tricks.",
+    "profile_image": "https://gettyslawfirm.com/wp-content/uploads/bb-plugin/cache/024-kg-profile-square-circle.jpeg",
     "groups": [],
     "user_permissions": [],
-    "friended_by": []
+    "friended_by": [
+      7,
+      9,
+      10
+    ]
   }
 },
 {
@@ -116,10 +140,10 @@
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:40:04.144Z",
+    "date_joined": "2021-01-28T16:40:04Z",
     "email": "kate@gmail.com",
     "bio": "I enjoy growing lost of herbs and flowers. I love the smell of my garden during summmer. I'm really interested to find out what everyone else is",
-    "profile_image": "https://expertphotography.com/wp-content/uploads/2018/10/cool-profile-pictures-retouching-1.jpg",
+    "profile_image": "https://elireview.com/wp-content/uploads/2016/12/reed-profile-square.jpg",
     "groups": [],
     "user_permissions": [],
     "friended_by": []
@@ -137,13 +161,19 @@
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:40:32.438Z",
+    "date_joined": "2021-01-28T16:40:32Z",
     "email": "eric@gmail.com",
-    "bio": "I live on a small life style block and grow all my own veggies year round. I looking to meet other people with a passion for plants",
-    "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT2U_-iUMXmUpHdq7hL1tUmWjpbRPLaCPxzg&usqp=CAU",
+    "bio": "I live on a small lifestyle block and grow all my own veggies year round. I'm looking to meet other people with a passion for plants. Who are keen to share a botanical bond.",
+    "profile_image": "https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/810/profiles/19338/profileImage/profile-square-extra-small.png",
     "groups": [],
     "user_permissions": [],
-    "friended_by": []
+    "friended_by": [
+      6,
+      7,
+      4,
+      3,
+      10
+    ]
   }
 },
 {
@@ -158,13 +188,18 @@
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:40:55.169Z",
+    "date_joined": "2021-01-28T16:40:55Z",
     "email": "pete@gmail.com",
-    "bio": "Love getting oustide with the kids especially in the garden. My daughter and I have started a small flower garden and thinking of starting a veggie garden aswell. Would love any pointers.",
+    "bio": "Love getting outside with the kids especially in the garden. My daughter and I have started a small flower garden and were thinking of starting a veggie garden as well. Would love any pointers.",
     "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC8kiSH5ZSAcVoj3tAQQDoP_ux0sSricMyUg&usqp=CAU",
     "groups": [],
     "user_permissions": [],
-    "friended_by": []
+    "friended_by": [
+      7,
+      4,
+      10,
+      11
+    ]
   }
 },
 {
@@ -179,13 +214,18 @@
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:41:09.430Z",
+    "date_joined": "2021-01-28T16:41:09Z",
     "email": "steve@gmail.com",
     "bio": "A suit during the week and gum boots on the weekend. What more can I say? If I'm not in the office you'll catch me in the garden",
     "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSWruxt_H1gunWRGQxpsvkSmvlAWeppxgPCA&usqp=CAU",
     "groups": [],
     "user_permissions": [],
-    "friended_by": []
+    "friended_by": [
+      8,
+      5,
+      2,
+      9
+    ]
   }
 },
 {
@@ -195,18 +235,23 @@
     "password": "pbkdf2_sha256$216000$W7WLCIBn2Owi$K+/spaqbyOt8Rdg3Hg4KyiqbGEIBAozTXMqyvemBH8Y=",
     "last_login": null,
     "is_superuser": false,
-    "username": "Lilly",
+    "username": "Lily",
     "first_name": "",
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:41:24.290Z",
+    "date_joined": "2021-01-28T16:41:24Z",
     "email": "lilly@gmail.com",
     "bio": "I'm a big fan of ferns. Why? I don't really know. Anyone else out there a big fan?",
-    "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBieRlQoTjqUR3mrlExeWdjLnhVfkVsGrdjg&usqp=CAU",
+    "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPrGKMcurXtW5j1Pn-LwXmikuRbmf-nLmqlg&usqp=CAU",
     "groups": [],
     "user_permissions": [],
-    "friended_by": []
+    "friended_by": [
+      6,
+      5,
+      4,
+      11
+    ]
   }
 },
 {
@@ -221,13 +266,18 @@
     "last_name": "",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2021-01-28T16:41:39.689Z",
+    "date_joined": "2021-01-28T16:41:39Z",
     "email": "anders@gmail.com",
-    "bio": "I'm currently studying horticulture and earth sciences at uni. I don't have much of garden at my flat, but my parents live on farm and we grew up with a massive veggie garden. I'm keen to see what everyone else is growing",
-    "profile_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMoc0DT5zJJUCHEABINHU_jUfM5XmJLanRqw&usqp=CAU",
+    "bio": "I'm currently studying horticulture and earth sciences at uni. I don't have much of garden at my flat, but my parents live on farm and we grew up with a massive veggie garden. I'm keen to see what everyone else is growing.",
+    "profile_image": "https://sunrift.com/wp-content/uploads/2014/12/Blake-profile-photo-square.jpg",
     "groups": [],
     "user_permissions": [],
-    "friended_by": []
+    "friended_by": [
+      8,
+      2,
+      10,
+      11
+    ]
   }
 }
 ]

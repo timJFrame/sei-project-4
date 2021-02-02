@@ -1,5 +1,6 @@
 import React from 'react'
 import Loader from 'react-loader-spinner'
+import { motion } from 'framer-motion'
 
 import { getAllPosts, postUserPost } from '../../lib/api'
 import PostCard from './PostCard'
@@ -41,10 +42,14 @@ function PostIndex(){
     }
   }
 
+
  
 
   return (
-    <section 
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }} 
       className="page-feed-container">
       <form className="user-post-form" onSubmit={handlePostSubmit}>
         <fieldset>
@@ -80,7 +85,7 @@ function PostIndex(){
 
       }
     
-    </section>
+    </motion.section>
   )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import useForm from '../../utils/useform'
+import { motion } from 'framer-motion'
 import ImageUploadField from '../../utils/ImageUpload'
 import { registerUser } from '../../lib/api'
 import { useHistory } from 'react-router-dom'
@@ -29,7 +30,11 @@ function Register(){
   }
 
   return (
-    <section className="form-container">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="form-container">
       <form onSubmit={handleSubmit}>
         <fieldset>
           <label>Username</label>
@@ -88,7 +93,7 @@ function Register(){
         </fieldset>
         <input className="button-outline form-sumbit full-length-button" type="submit" value="Register"/>
       </form>
-    </section>
+    </motion.section>
   
   )
 }

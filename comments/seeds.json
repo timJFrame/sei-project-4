@@ -123,7 +123,7 @@
   "model": "comments.comment",
   "pk": 13,
   "fields": {
-    "text": "Someones got green thumbs!!!",
+    "text": "Do you get fresh eggs everyday?",
     "created_at": "2021-01-28T17:17:23.378Z",
     "post": 14,
     "owner": 9
@@ -143,7 +143,7 @@
   "model": "comments.comment",
   "pk": 15,
   "fields": {
-    "text": "🥕",
+    "text": "Yum, loves cos lettuce",
     "created_at": "2021-01-28T17:18:25.445Z",
     "post": 16,
     "owner": 7
@@ -173,7 +173,7 @@
   "model": "comments.comment",
   "pk": 18,
   "fields": {
-    "text": "🥔",
+    "text": "Wow, where did you find that?",
     "created_at": "2021-01-28T17:19:34.507Z",
     "post": 19,
     "owner": 9
@@ -187,6 +187,46 @@
     "created_at": "2021-01-28T17:20:02.047Z",
     "post": 20,
     "owner": 10
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 43,
+  "fields": {
+    "text": "Looks great!!",
+    "created_at": "2021-02-02T18:27:17.342Z",
+    "post": 18,
+    "owner": 8
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 44,
+  "fields": {
+    "text": "Wow so colourful 🌈",
+    "created_at": "2021-02-02T18:28:17.817Z",
+    "post": 8,
+    "owner": 8
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 45,
+  "fields": {
+    "text": "Looks like your doing pretty well to me!!!",
+    "created_at": "2021-02-02T18:28:51.907Z",
+    "post": 4,
+    "owner": 8
+  }
+},
+{
+  "model": "comments.comment",
+  "pk": 46,
+  "fields": {
+    "text": "Wow your garden is huge",
+    "created_at": "2021-02-02T18:29:41.775Z",
+    "post": 2,
+    "owner": 8
   }
 }
 ]
