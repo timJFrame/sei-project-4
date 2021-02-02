@@ -5,27 +5,23 @@
     color:  #00887a;
     .button{
         margin: 0 2.5px;
-        color:  #00887a;
+        color: $button-color;
     }
 }
 
 .logo-container{
-    flex: 1
+    flex: 1;
+    button{
+        font-family: 'Varela Round', sans-serif;
+        font-size: 3rem;
+        font-weight: lighter;
+        letter-spacing: 8px;
+    }
 }
+
 
 .nav-links-container{
     justify-content: flex-end;
-}
-
-.button{
-    margin: 0 2.5px;
-    color:  #00887a;
-}
-
-
-.button-green{
-    background-color: #41b3a3;
-    border-color:  #41b3a3;
 }
 
 

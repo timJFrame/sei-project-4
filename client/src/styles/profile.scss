@@ -92,8 +92,29 @@ p{
     display: flex;
 }
 
+.delete-user-container{
+    display: flex;
+    button{
+        width:100%;
+    }
+}
 
+.friends-container{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
 
+.friend-image-and-name{
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+.friend-name-container{
+    align-self: center;
+}
 
 //*USED BY SINGLE USER VIEW ONLY
 
@@ -108,3 +129,4 @@ p{
 .added-friend-message-container{
     margin: 20px;
 }
+

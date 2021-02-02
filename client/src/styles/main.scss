@@ -1,3 +1,37 @@
+$button-color: #14adad;
+$delete-button-color: #d68437;
+
+
+.button-small {
+    font-size: .8rem;
+    height: 2.8rem;
+    line-height: 2.8rem;
+    padding: 0 1.5rem;
+  }
+
+.button-green{
+    background-color: $button-color;
+    border-color: $button-color
+  }
+
+  .button-green.button-clear,
+.button-green.button-outline {
+  background-color: transparent;
+  color:$button-color;
+}
+
+.button-red{
+    background-color: $button-color;
+    border-color: $delete-button-color;
+  }
+
+  .button-red.button-clear,
+.button-red.button-outline {
+  background-color: transparent;
+  color: $delete-button-color;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import 'nav';
 @import 'home';
 @import 'forms';

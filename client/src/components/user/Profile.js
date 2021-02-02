@@ -1,10 +1,15 @@
 import React from 'react'
-import { getCurrentUser } from '../../lib/api'
+import { getCurrentUser, deleteSingleUser } from '../../lib/api'
+import { useHistory } from 'react-router-dom'
 import Loader from 'react-loader-spinner'
+import {  logout } from '../../lib/auth'
 
 
 function Profile(){
   const [currentUser, setCurrentUser] = React.useState(null)
+  const history = useHistory(
+  
+  )
 
   //*Gets current users details via get request
   React.useEffect(() => {
@@ -19,6 +24,7 @@ function Profile(){
     getData()
   }, [])
 
+  
 
   //* Reformats the date from post request
   const reorderDate = (date) => {
@@ -26,11 +32,18 @@ function Profile(){
     return `${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`
   }
 
+  //*Handle deleting the current users profile
+  const handleProfileDelete = async () => {
+    const id = currentUser.id
+    await deleteSingleUser(id)
+    logout()
+    history.push('/')
+  }
 
   return (
     <section className = 'profile-container'>
       {currentUser ?
-        
+      
         <>
           <article className="main-user-details">
             <div className="name-email-div">
@@ -47,45 +60,35 @@ function Profile(){
               {currentUser.bio}
             </p>
           </article>
-
-         
-         
-        
+          
           <article className="profile-view-reuse-conatiner">
             <div className="reuse-container-title">
               <h3>Friends</h3>
             </div>
-            <div className="comments-made-container">
-              <div  className="image-and-text" >
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Photo</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {currentUser.friendedBy ?
-                      currentUser.friendedBy.map(friend => (
+            <div className="friends-container">
+              {currentUser.friendedBy ?
+                currentUser.friendedBy.map(friend => (
                  
-
-                        <tr key={friend.id}>
-                          <td>{friend.username}</td>
-                          <td><img src={friend.profileImage} alt={friend.username}className="reuse-image"/></td>
-                        </tr>
-                        
+                  <div key={friend.id} className="friend-image-and-name">
+                    <div className="friend-image">
+                      <img src={friend.profileImage} alt={friend.name} className="reuse-image"/>
+                    </div>
+                    <div className="friend-name-container">
+                      <p>{friend.username}</p>
+                    </div>
+                  </div> 
                    
-                      )) 
-                      :
-                      <Loader type="ThreeDots" color="#85837f" height={80} width={80} className="loading-spinner"/>
-                    }
-                  </tbody>
-                </table>
-              </div>
+                )) 
+                :
+                <Loader type="ThreeDots" color="#85837f" height={80} width={80} className="loading-spinner"/>
+              }
+
+
+
+             
+
             </div>
           </article>
-
-
 
           <article className="profile-view-reuse-conatiner">
             <div className="reuse-container-title">
@@ -199,7 +202,9 @@ function Profile(){
               </div>
             </div>
           </article>
-          
+          <div className="delete-user-container">
+            <button className="button-red button-outline" onClick={handleProfileDelete}>Delete Profile</button>
+          </div>
         </>
           
         :

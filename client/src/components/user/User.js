@@ -76,7 +76,7 @@ function User(){
           }
 
           <div className="user-profile-friend-button-container">
-            <button className="button-outline" onClick={handleAddingFriend}>Add friend</button>
+            <button className="button-green button-outline" onClick={handleAddingFriend}>Add friend</button>
           </div>
         </>
         :

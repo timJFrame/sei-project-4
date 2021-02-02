@@ -46,11 +46,11 @@ padding: 15px 10px 10px 10px;
 }
 }
 
-.edit-button-container{
+.modify-post-button-container{
   
    margin: 10px;
   
-   .edit-button{
+   .modify-button{
     font-size: .8rem;
     height: 2.8rem;
     line-height: 2.8rem;
@@ -81,8 +81,6 @@ padding: 15px 10px 10px 10px;
     max-height: 400px;
 }
 
-
-
 .comments-likes-display-conatiner{
     display: flex;
     flex-direction: row;
@@ -92,6 +90,14 @@ padding: 15px 10px 10px 10px;
 
 .comments-feed-container{
     flex: 3;
+}
+
+.comment-text-and-button-container{
+    display: flex;
+    align-items: center;
+    button{
+        border-radius: 100px;
+    }
 }
 
 .user-comment-text{
@@ -122,6 +128,7 @@ padding: 15px 10px 10px 10px;
     border-radius: 5px;
     .view-like{
       margin: 0;
+      font-size: 0.8em;
     }
    
 }
@@ -143,6 +150,7 @@ padding: 15px 10px 10px 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 10px;
+    
     fieldset{
         display: flex;
             display: flex;
@@ -151,7 +159,6 @@ padding: 15px 10px 10px 10px;
                 width: 270px;
                 min-height: 100px;
             }
-        
     }
 }
 

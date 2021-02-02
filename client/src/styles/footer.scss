@@ -10,7 +10,11 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     background-color: white;
-    
+   max-height: 300px;
+   overflow: scroll;
+    .hide-chat-button{
+        margin-bottom: -25px;
+    }
 }
 
 .chat-master-container{
@@ -26,6 +30,10 @@
 }
 
 .chat-selection-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+   
     margin: 5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -36,7 +44,7 @@
 .chat-container{
     display: flex;
     flex-direction: column;
-   align-content: flex-end;
+   justify-content: flex-start;
     margin: 5px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
@@ -48,5 +56,6 @@
 
 .chat-form{
    display: flex;
+  margin-bottom: -20px;
 }
 

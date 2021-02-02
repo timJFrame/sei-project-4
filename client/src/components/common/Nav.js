@@ -20,7 +20,7 @@ function Nav(){
     <nav className="nav-container">
       <div className="logo-container">
         <Link to="/">
-          <button className="button button-clear">Vine(replace with logo)</button>
+          <button className="button button-clear logo">Vine</button>
         </Link>
       </div>
       <div className="nav-links-container">

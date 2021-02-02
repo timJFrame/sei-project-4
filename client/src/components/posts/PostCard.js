@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { postComment, postLike, getSinglePost, editSinglePost } from '../../lib/api'
+import { postComment, postLike, getSinglePost, editSinglePost, deleteComment, deleteSinglePost } from '../../lib/api'
 import  useForm  from '../../utils/useform'
 import ImageUploadField from '../../utils/ImageUpload'
 import { isOwner } from '../../lib/auth'
@@ -8,6 +8,8 @@ import { isOwner } from '../../lib/auth'
 function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy, getAllPosts, setPosts }){
 
   const isPostOwner = isOwner(owner.id)
+  let commentOwner
+ 
 
   const [edit, setEdit] = React.useState(false)
   const [editImage, setEditImage] = React.useState(false)
@@ -92,6 +94,30 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
     }
   }
 
+  //*Handles deleting comment
+  const handleCommentDelete = async (commentId) => {
+    const id = commentId
+    try {
+      await deleteComment(id)
+      const { data } = await getAllPosts()
+      setPosts(data)
+    } catch (err){
+      console.log(err)
+    }
+
+  }
+
+  //*Hanldes deleting a post
+  const handlePostDelete = async () => {
+    try {
+      const postId = id
+      await deleteSinglePost(postId)
+      const { data } = await getAllPosts()
+      setPosts(data)
+    } catch (err){
+      console.log(err)
+    }
+  }
 
   return (
     <article className="user-post-container">
@@ -113,9 +139,14 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
         {isPostOwner &&
        <>
          {!edit &&
-        <div className="edit-button-container">
-          <button className="button-outline edit-button" onClick={handleEditLoad}>Edit</button>
-        </div>
+         <>
+           <div className="modify-post-button-container">
+             <button className="button-green button-outline modify-button button-small" onClick={handleEditLoad}>Edit</button>
+           </div>
+           <div className="modify-post-button-container">
+             <button className="button-red button-outline modify-button button-small" onClick={handlePostDelete}>Delete</button>
+           </div>
+         </>
          }
        </>
         }
@@ -161,11 +192,20 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
           {comments ?
             comments.map(comment => (
               <>
-            
-                <div key={comment.id} className="user-comment-text">
-                  <p><strong>{comment.owner.username}</strong></p>
-                  <p>{comment.text}</p>
+                {commentOwner = isOwner(comment.owner.id)}
+                <div key={comment.createdAt} className="comment-text-and-button-container">
+                  <div  className="user-comment-text">
+                    <p><strong>{comment.owner.username}</strong></p>
+                    <p>{comment.text}</p>
+                  </div>
+
+                  {commentOwner &&
+                    <div className="comment-delete-container">
+                      <button className="button-red button-outline button-small" onClick={() => handleCommentDelete(comment.id)}>x</button>
+                    </div>
+                  }
                 </div>
+
 
               </>
             ))
@@ -176,7 +216,7 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
         {likedBy ?
 
           <div className="likes-feed-view-container">
-            <button className="button-outline view-like-button" onClick={() => handleLike(id)}>Like</button>
+            <button className="button-green button-outline button-small view-like-button" onClick={() => handleLike(id)}>Like</button>
             <p className="view-like">{`${likedBy.length} likes`}</p>
 
           </div>
@@ -198,7 +238,7 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
             onChange={handleCommentChange}
           />
         </fieldset>
-        <input className="button-outline form-sumbit button-small" type="submit" value="send"/>
+        <button className="button-green button-outline form-sumbit " type="submit" >Send</button>
       </form>
 
     </article>

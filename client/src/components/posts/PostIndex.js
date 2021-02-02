@@ -66,14 +66,14 @@ function PostIndex(){
         </fieldset>
 
         
-        <input className="button-outline form-sumbit " type="submit" value="Create Post"/>
+        <button className="button-green button clear button-outline form-sumbit " type="submit">Create Post</button>
       </form>
       {posts ?
         posts.map(post => (
-          <PostCard 
+          <PostCard key={post.id} {...post}
             getAllPosts={getAllPosts}
             setPosts={setPosts}
-            key={post.id} {...post}/>
+          />
         ))
         :
         <Loader type="ThreeDots" color="#85837f" height={80} width={80} className="loading-spinner"/>

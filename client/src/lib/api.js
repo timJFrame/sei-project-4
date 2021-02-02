@@ -26,6 +26,11 @@ export function getSingleUser(id){
   return axios.get(`${baseUrl}auth/user/${id}`, headers())
 }
 
+//*Delete a single user 
+export function deleteSingleUser(id){
+  return axios.delete(`${baseUrl}auth/user/${id}`, headers())
+}
+
 //* The profile of the user currently logged in
 export function getCurrentUser(){
   return axios.get(`${baseUrl}auth/profile/`, headers())
@@ -52,19 +57,30 @@ export function postUserPost(formdata){
   return axios.post(`${baseUrl}posts/`, formdata, headers())
 }
 
-//*Get Single Post
-export function getSinglePost(id){
-  return axios.get(`${baseUrl}posts/${id}/`, headers())
-}
-
-//*Edit a single job
+//*Edit a post
 export function editSinglePost(id, formdata){
   return axios.put(`${baseUrl}posts/${id}/`, formdata, headers())
 }
 
+//*Delete a single post
+export function deleteSinglePost(id){
+  return axios.delete(`${baseUrl}posts/${id}/`, headers())
+}
+
+//*Get a single post
+export function getSinglePost(id){
+  return axios.get(`${baseUrl}posts/${id}/`, headers())
+}
+
+
 //*Post a comment on a post
 export function postComment(formdata){
   return axios.post(`${baseUrl}comments/`, formdata, headers())
+}
+
+//*Deletes a comment on a post
+export function deleteComment(id){
+  return axios.delete(`${baseUrl}comments/${id}/`, headers())
 }
 
 //*Like a post

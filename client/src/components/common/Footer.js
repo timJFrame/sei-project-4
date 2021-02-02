@@ -15,8 +15,11 @@ function Footer(){
   const isLoggedIn = isAuthenticated()
   let chatId
   let recieverId
+  
   const { pathname } = useLocation()
 
+ 
+ 
   //*Gets current user
   React.useEffect(() =>{
     const getData = async () => {
@@ -38,11 +41,17 @@ function Footer(){
   //*Handles getting user id
   const handleUserSelection = async (e) => {
     userId = e.target.value
-    await postChat({ recipient: userId })
+    if (parseInt(userId) !== currentUser.id){
+      console.log(typeof userId)
+      console.log(typeof currentUser.id)
+      await postChat({ recipient: userId })
+    }
     const { data } = await getCurrentUser()
     setCurrentUser(data)
   }
 
+   
+  
   //*Handles getting the current user who is logged in details
   React.useEffect(() =>{
     const getData = async () => {
@@ -55,8 +64,8 @@ function Footer(){
     }
     getData()
   }, [pathname])
-
-
+  
+  
   //*Handles making text field on chat from a controled input
   const [messageData, setMessageData] = React.useState({
     text: '',
@@ -109,7 +118,7 @@ function Footer(){
 
         {!chatboard &&
           <div className="show-chat-button">
-            <button className="button-outline button-small" onClick={handleShowChat}>Open Chat</button>
+            <button className="button-green button-outline button-small" onClick={handleShowChat}>Open Chat</button>
           </div>
         }
     
@@ -117,7 +126,7 @@ function Footer(){
         
           <>
             <div className="hide-chat-button">
-              <button className="button-outline button-small" onClick={handleChatClose}>Close chat</button>
+              <button className="button-red button-outline button-small" onClick={handleChatClose}>Close chat</button>
             </div>
             
             <div className="chat-master-container">
@@ -173,9 +182,9 @@ function Footer(){
                         />
                   
                       </fieldset>
-                      <button className="button-outline" type="submit" value="send">send</button>
+                      <button className="button-green button-outline" type="submit" value="send">send</button>
                     </form>
-                    <button className="button-outline button-small" onClick={() => handleMessageDelete(chat.id)}>Delete</button>
+                    <button className="button-red button-outline button-small" onClick={() => handleMessageDelete(chat.id)}>Delete</button>
                   </div>
                 ))
                 :
@@ -208,7 +217,7 @@ function Footer(){
                         />
                   
                       </fieldset>
-                      <button className="button-outline" type="submit" value="send">send</button>
+                      <button className="button-green button-outline" type="submit" value="send">send</button>
                     </form>
                   </div>
                 ))
