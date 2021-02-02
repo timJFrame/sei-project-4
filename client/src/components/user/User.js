@@ -42,16 +42,12 @@ function User(){
   }
 
 
-
-
   //* Reformats the date from post request
   const reorderDate = (date) => {
     const dateArray = date.slice(0, 10).split('-')
     return `${dateArray[2]}.${dateArray[1]}.${dateArray[0]}`
   }
 
-
-  console.log(user)
 
   return (
     <section className="profile-container">
@@ -79,8 +75,8 @@ function User(){
           </div>
           }
 
-          <div className="user-profile-freind-button-container">
-            <button className="button-outline" onClick={handleAddingFriend}>Add freind</button>
+          <div className="user-profile-friend-button-container">
+            <button className="button-outline" onClick={handleAddingFriend}>Add friend</button>
           </div>
         </>
         :

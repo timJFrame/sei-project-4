@@ -1,6 +1,6 @@
 import React from 'react'
 import { getAllUsers } from '../../lib/api'
-import { postChat, getCurrentUser, postMessage } from '../../lib/api'
+import { postChat, getCurrentUser, postMessage, deleteChat } from '../../lib/api'
 import { useLocation } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
 
@@ -22,7 +22,10 @@ function Footer(){
     const getData = async () => {
       try {
         const { data } = await getAllUsers()
-        setUsers(data)
+        const filterUsers = () => data.filter(user =>{
+          return user.username !== 'admin' && user.username !== currentUser?.username
+        })
+        setUsers(filterUsers)
       } catch (err){
         console.log(err)
       }
@@ -66,7 +69,7 @@ function Footer(){
   const handleMessageChangeDetails =  (chatid, recieverid, e) => {
     chatId = chatid
     recieverId = recieverid
-    setMessageData({ messageData, [e.target.name]: e.target.value, chat: chatId, receiver: recieverId })
+    setMessageData({ ...messageData, [e.target.name]: e.target.value, chat: chatId, receiver: recieverId })
   }
 
   
@@ -88,6 +91,15 @@ function Footer(){
   const handleChatClose = () => {
     setChatboard(false)
   }
+
+  //*Handles deleting a messahe
+  const handleMessageDelete = async (chatid) => {
+    await deleteChat(chatid)
+    const { data } = await getCurrentUser()
+    setCurrentUser(data)
+  }
+
+
 
 
   return (
@@ -115,17 +127,14 @@ function Footer(){
                 <form >
                   <fieldset>
                     <select onChange={handleUserSelection}>
-           
+                      
                       {users ? 
                         users.map(user => (
             
                           <option 
                             key={user.id} 
                             value={user.id}>
-                    
                             {user.username}
-                       
-                    
                           </option>
                         ))
                         :
@@ -164,8 +173,9 @@ function Footer(){
                         />
                   
                       </fieldset>
-                      <button className="button-outline">send</button>
+                      <button className="button-outline" type="submit" value="send">send</button>
                     </form>
+                    <button className="button-outline button-small" onClick={() => handleMessageDelete(chat.id)}>Delete</button>
                   </div>
                 ))
                 :
@@ -198,7 +208,7 @@ function Footer(){
                         />
                   
                       </fieldset>
-                      <button className="button-outline">send</button>
+                      <button className="button-outline" type="submit" value="send">send</button>
                     </form>
                   </div>
                 ))

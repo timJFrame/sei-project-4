@@ -80,5 +80,9 @@ export function postChat(data){
 //*Sends a message from one user to another
 export function postMessage(formdata){
   return axios.post(`${baseUrl}communications/`, formdata, headers())
+}
 
+//*Delete a chat
+export function deleteChat(id){
+  return axios.delete(`${baseUrl}chats/${id}/`, headers())
 }
