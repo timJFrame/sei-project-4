@@ -19,6 +19,12 @@
 }
 
 .form-error-message{
-    color: red;
+    color: $delete-button-color;
     text-align: center;
 }
+
+@media (max-width: 40.0rem){
+    .form-container{
+      margin:10px;
+    }
+  }

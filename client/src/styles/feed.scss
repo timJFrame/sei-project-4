@@ -3,6 +3,8 @@
     margin: 100px auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .loading-spinner{
@@ -10,6 +12,24 @@
     justify-self: center;
 }
 
+//*The form to create jobs on the card index
+.user-post-form{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 10px;
+    width: 500px;
+    fieldset{
+        display: flex;
+            display: flex;
+            .create-post-text-area{
+                margin-right: 10px;
+                width: 270px;
+                min-height: 100px;
+            }
+    }
+}
 
 .post-button{
     margin-bottom: 25px
@@ -117,6 +137,7 @@ padding: 15px 10px 10px 10px;
 }
 
 .likes-feed-view-container{
+
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -137,30 +158,21 @@ padding: 15px 10px 10px 10px;
 
 .comment-form{
     display: flex;
-    margin: 0;
-    .comment-input{
-      width: 400px;
+    justify-content: center;
+    .submit-comment-container{
+        flex: 1;
+        margin-right:5px;
     }
+   fieldset{
+       flex:4.5;
+       margin-left:5px;
+       .comment-input{
+           width: 100%;
+       }
+   }
 }
 
-.user-post-form{
-    box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    padding: 10px;
-    
-    fieldset{
-        display: flex;
-            display: flex;
-            .create-post-text-area{
-                margin-right: 10px;
-                width: 270px;
-                min-height: 100px;
-            }
-    }
-}
+
 
 .edit-post-form{
     display: flex;
@@ -171,8 +183,9 @@ padding: 15px 10px 10px 10px;
             flex-direction: column;
             .create-post-text-area{
             text-align: center;
-             
-            }
+             border: none;
+             }
+            
     }
 }
 
@@ -180,4 +193,78 @@ padding: 15px 10px 10px 10px;
 .edit-post-image{
     max-width: 100%;
     max-height: 400px;
+}
+
+
+@media (max-width: 40.0rem){
+    .page-feed-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+    }
+
+    .user-post-form{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        padding: 10px;
+        width: 300px;
+        fieldset{
+                display: flex;
+                flex-direction: column;
+            
+             
+        }
+    }
+
+
+    .user-post-container{
+        display: flex;
+        flex-direction: column;
+        width:300px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin: 20px;
+        }
+
+        .comment-form{
+            display: flex;
+            .submit-comment-container{
+                flex: 1;
+                margin-right:5px;
+            }
+           
+           fieldset{
+               flex:3;
+               margin-left:5px;
+               .comment-input{
+                   width: 100%;
+               }
+           }
+        }
+
+        .edit-post-image{
+            max-width: 95%;
+            max-height: 100%;
+        }
+
+        .edit-post-form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            fieldset{
+                    display: flex;
+                    flex-direction: column;
+                    align-items:center;
+                    .create-post-text-area{
+                    text-align: center;
+                     border: none;
+                     }
+                    
+            }
+        }
 }

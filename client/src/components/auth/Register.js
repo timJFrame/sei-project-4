@@ -91,7 +91,7 @@ function Register(){
 
 
         </fieldset>
-        <input className="button-outline form-sumbit full-length-button" type="submit" value="Register"/>
+        <button className="button-green button-outline form-sumbit full-length-button" type="submit">Register</button>
       </form>
     </motion.section>
   

@@ -9,10 +9,9 @@ import { isOwner } from '../../lib/auth'
 
 function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy, getAllPosts, setPosts }){
 
+  //*Global Variables
   const isPostOwner = isOwner(owner.id)
   let commentOwner
- 
-
   const [edit, setEdit] = React.useState(false)
   const [editImage, setEditImage] = React.useState(false)
 
@@ -24,7 +23,7 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
   }
 
  
-
+  //* State to capture comment
   const [ commentData, setCommentData ] = React.useState({
     text: '',
     post: `${id}`
@@ -39,12 +38,13 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
   const handleCommentSubmit = async (e) => {
     e.preventDefault()
     try {
+      console.log(commentData)
       await postComment(commentData)
-      setCommentData({ text: '' })
+      setCommentData({ text: '', post: id })
       const { data } =  await getAllPosts()
       setPosts(data)
     } catch (err){
-      console.log(err)
+      console.log(err.response.data)
     }
   }
 
@@ -189,7 +189,7 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
               />
             </div>
           </fieldset>
-          <input className="button-outline form-sumbit " type="submit" value="Save Change"/>
+          <button className="button-green button-outline form-sumbit " type="submit">Save Change</button>
         </form>
       }
       
@@ -244,7 +244,9 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
             onChange={handleCommentChange}
           />
         </fieldset>
-        <button className="button-green button-outline form-sumbit " type="submit" >Send</button>
+        <div className="submit-comment-container">
+          <button className="button-green button-outline form-sumbit " type="submit" >Send</button>
+        </div>
       </form>
 
     </motion.article>

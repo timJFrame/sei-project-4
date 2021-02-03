@@ -46,6 +46,7 @@ p{
 
 
 .profile-view-reuse-conatiner{
+
     display: flex;
     flex-direction: column;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -130,3 +131,12 @@ p{
     margin: 20px;
 }
 
+
+@media (max-width: 40.0rem){
+  .profile-container{
+     display: flex;
+     justify-content: center;
+    align-items: center;
+    margin:20px;
+  }
+}

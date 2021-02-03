@@ -1,6 +1,15 @@
 $button-color: #14adad;
 $delete-button-color: #d68437;
+$master-box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
 
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import 'nav';
+@import 'home';
+@import 'forms';
+@import 'profile';
+@import 'feed';
+@import 'footer';
+@import 'buttons';
 
 .button-small {
     font-size: .8rem;
@@ -31,11 +40,4 @@ $delete-button-color: #d68437;
   color: $delete-button-color;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-@import 'nav';
-@import 'home';
-@import 'forms';
-@import 'profile';
-@import 'feed';
-@import 'footer';
-@import 'buttons'
+

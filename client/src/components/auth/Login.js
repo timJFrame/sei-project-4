@@ -55,7 +55,7 @@ function Login(){
             placeholder="Email"/>
           {errors.password && <p>{errors.password}</p>}
           {errors.detail && <p className="form-error-message">{errors.detail}</p>}
-          <input className="button-outline form-sumbit full-length-button" type="submit" value="Login"/>
+          <button className="button-green button-outline form-sumbit full-length-button" type="submit">Login</button>
         </fieldset>
       </form>
     </motion.section>

@@ -6,3 +6,11 @@
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 40.0rem){
+.page-container{
+    h2{
+        font-size:1.6rem;
+    }
+}
+}
