@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSpring, animated } from 'react-spring'
 import { getAllUsers } from '../../lib/api'
 import { postChat, getCurrentUser, postMessage, deleteChat } from '../../lib/api'
 import { useLocation } from 'react-router-dom'
@@ -7,9 +8,13 @@ import { isAuthenticated } from '../../lib/auth'
 
 
 function Footer(){
+
   const [users, setUsers ] = React.useState(null)
   const [currentUser, setCurrentUser] = React.useState(null)
   const [chatboard, setChatboard] = React.useState(false)
+
+  useSpring({ config: { duration: 5000 } })
+  const fade = useSpring({ opacity: 1, from: { opacity: 0 } })
   
   //*Global variables
   let userId 
@@ -19,6 +24,7 @@ function Footer(){
   
   const { pathname } = useLocation()
 
+  
 
   //*Gets current user
   React.useEffect(() =>{
@@ -48,8 +54,8 @@ function Footer(){
     setCurrentUser(data)
   }
 
-   
-  
+ 
+ 
   //*Handles getting the current user who is logged in details
   React.useEffect(() =>{
     const getData = async () => {
@@ -62,6 +68,7 @@ function Footer(){
     }
     getData()
   }, [pathname])
+  
   
   
   //*Handles making text field on chat from a controled input
@@ -157,7 +164,7 @@ function Footer(){
 
               {currentUser?.createdChats ?
                 currentUser.createdChats.map(chat => (
-                  <div key={chat.id}className="chat-container">
+                  <animated.div key={chat.id}className="chat-container" style={fade}>
                     <h5>{`You're chatting with ${chat.recipient.username} `}</h5>
                     {chat.communications ?
                       chat.communications.map(message => (
@@ -184,7 +191,7 @@ function Footer(){
                       <button className="button-green button-outline" type="submit" value="send">send</button>
                     </form>
                     <button className="button-red button-outline button-small" onClick={() => handleMessageDelete(chat.id)}>Delete</button>
-                  </div>
+                  </animated.div> 
                 ))
                 :
                 <p></p>

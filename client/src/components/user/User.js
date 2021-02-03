@@ -74,12 +74,7 @@ function User(){
             </p>
           </article>
 
-          { addedFriendMessage &&
-          <div className="added-friend-message-container">
-            <p ><strong>{`Great ${user.username} has been added to your friends list`}</strong></p>
-          </div>
-          }
-
+         
           <article className="profile-view-reuse-conatiner">
             <div className="reuse-container-title">
               <h3>Friends</h3>
@@ -109,6 +104,11 @@ function User(){
             </div>
           </article>
 
+          { addedFriendMessage &&
+          <div className="added-friend-message-container">
+            <p ><strong>{`Great ${user.username} has been added to your friends list`}</strong></p>
+          </div>
+          }
 
           <div className="user-profile-friend-button-container">
             <button className="button-green button-outline" onClick={handleAddingFriend}>Add friend</button>

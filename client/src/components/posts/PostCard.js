@@ -38,7 +38,6 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
   const handleCommentSubmit = async (e) => {
     e.preventDefault()
     try {
-      console.log(commentData)
       await postComment(commentData)
       setCommentData({ text: '', post: id })
       const { data } =  await getAllPosts()
@@ -52,7 +51,6 @@ function PostCard({ id, owner, createdAt, postText, postImage, comments, likedBy
   //*Handles liking a post
   const handleLike = async (id) => {
     try {
-      console.log(id)
       await postLike(id)
       const { data } = await getAllPosts()
       setPosts(data)
