@@ -1,9 +1,11 @@
 import React from 'react'
-import { useSpring, animated } from 'react-spring'
+
 import { getAllUsers } from '../../lib/api'
-import { postChat, getCurrentUser, postMessage, deleteChat } from '../../lib/api'
+import { postChat, getCurrentUser } from '../../lib/api'
 import { useLocation } from 'react-router-dom'
 import { isAuthenticated } from '../../lib/auth'
+import CreatedMessage from './CreatedMessage'
+import RecievedMessage from './RecievedMessage'
 
 
 
@@ -13,14 +15,12 @@ function Footer(){
   const [currentUser, setCurrentUser] = React.useState(null)
   const [chatboard, setChatboard] = React.useState(false)
 
-  useSpring({ config: { duration: 5000 } })
-  const fade = useSpring({ opacity: 1, from: { opacity: 0 } })
+  
   
   //*Global variables
   let userId 
   const isLoggedIn = isAuthenticated()
-  let chatId
-  let recieverId
+  
   
   const { pathname } = useLocation()
 
@@ -71,31 +71,10 @@ function Footer(){
   
   
   
-  //*Handles making text field on chat from a controled input
-  const [messageData, setMessageData] = React.useState({
-    text: '',
-    chat: '',
-    receiver: ''
-  })
-
-
-  //*Handles getting for data to send in message body
-  const handleMessageChangeDetails =  (chatid, recieverid, e) => {
-    chatId = chatid
-    recieverId = recieverid
-    setMessageData({ ...messageData, [e.target.name]: e.target.value, chat: chatId, receiver: recieverId })
-    
-  }
+ 
 
   
-  //*Handles submitting message post request
-  const handleMessageSubmit = async (e) => {
-    e.preventDefault()
-    await postMessage(messageData)
-    setMessageData({ text: '' })
-    const { data } = await getCurrentUser()
-    setCurrentUser(data)
-  }
+  
 
   //*Handles showing chat
   const handleShowChat = () => {
@@ -107,12 +86,6 @@ function Footer(){
     setChatboard(false)
   }
 
-  //*Handles deleting a messahe
-  const handleMessageDelete = async (chatid) => {
-    await deleteChat(chatid)
-    const { data } = await getCurrentUser()
-    setCurrentUser(data)
-  }
 
 
 
@@ -145,7 +118,6 @@ function Footer(){
                       
                       {users ? 
                         users.map(user => (
-            
                           <option 
                             key={user.id} 
                             value={user.id}>
@@ -164,72 +136,26 @@ function Footer(){
 
               {currentUser?.createdChats ?
                 currentUser.createdChats.map(chat => (
-                  <animated.div key={chat.id}className="chat-container" style={fade}>
-                    <h5>{`You're chatting with ${chat.recipient.username} `}</h5>
-                    {chat.communications ?
-                      chat.communications.map(message => (
-                        <div key={message.id}>
-                          <p><strong>{`${message.sender.username}: `}</strong> {`${message.text}`} </p>
-                        </div>
+                  <CreatedMessage key={chat.id}{...chat}
+                    getCurrentUser={getCurrentUser}
+                    setCurrentUser={setCurrentUser}
+                  />
                   
-                      ))
-                      :
-                      <p>No chats yet</p>
-                    }
-             
-                    <form className="chat-form" onSubmit={handleMessageSubmit}>
-                      <fieldset>
-                        <input
-                          type="text"
-                          name="text"
-                          value={messageData.text}
-                          placeholder="Message"
-                          onChange={(e)=> handleMessageChangeDetails(chat.id, chat.recipient.id , e)}
-                        />
-                  
-                      </fieldset>
-                      <button className="button-green button-outline" type="submit" value="send">send</button>
-                    </form>
-                    <button className="button-red button-outline button-small" onClick={() => handleMessageDelete(chat.id)}>Delete</button>
-                  </animated.div> 
                 ))
                 :
                 <p></p>
               }
-
+              
               {currentUser?.receivedChats ?
                 currentUser.receivedChats.map(chat => (
-                  < div key={chat.id}className="chat-container">
-                    <h5>{`You're chatting with ${chat.owner.username} `}</h5>
-                    {chat.communications ?
-                      chat.communications.map(message => (
-                        <div key={message.id}>
-                          <p><strong>{`${message.sender.username}: `}</strong> {`${message.text}`} </p>
-                        </div>
-                  
-                      ))
-                      :
-                      <p>No chats yet</p>
-                    }
-             
-                    <form className="chat-form" onSubmit={handleMessageSubmit}>
-                      <fieldset>
-                        <input
-                          type="text"
-                          name="text"
-                          value={messageData.text}
-                          placeholder="Message"
-                          onChange={(e)=> handleMessageChangeDetails(chat.communications[0].chat, chat.communications[0].sender.id , e)}
-                        />
-                  
-                      </fieldset>
-                      <button className="button-green button-outline" type="submit" value="send">send</button>
-                    </form>
-                  </div>
+                  <RecievedMessage key={chat.id}{...chat}
+                    getCurrentUser={getCurrentUser}
+                    setCurrentUser={setCurrentUser}
+                  />
                 ))
                 :
                 <p></p>
-              }
+              } 
             </div>
           </>
         }
