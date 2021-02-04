@@ -148,3 +148,4 @@ STATICFILES_DIRS = (
 )
 
 django_on_heroku.settings(locals())
+
