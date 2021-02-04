@@ -23,12 +23,12 @@ export function loginUser(formdata){
 
 //*Gets a single users profile
 export function getSingleUser(id){
-  return axios.get(`${baseUrl}auth/user/${id}`, headers())
+  return axios.get(`${baseUrl}auth/user/${id}/`, headers())
 }
 
 //*Delete a single user 
 export function deleteSingleUser(id){
-  return axios.delete(`${baseUrl}auth/user/${id}`, headers())
+  return axios.delete(`${baseUrl}auth/user/${id}/`, headers())
 }
 
 //* The profile of the user currently logged in
@@ -38,7 +38,7 @@ export function getCurrentUser(){
 
 //*Gets all users
 export function getAllUsers(){
-  return axios.get(`${baseUrl}auth`)
+  return axios.get(`${baseUrl}auth/`)
 }
 
 
@@ -49,7 +49,7 @@ export function friendUser(id){
 
 //*Gets all posts
 export function getAllPosts(){
-  return axios.get(`${baseUrl}posts`)
+  return axios.get(`${baseUrl}posts/`)
 }
 
 //*Post a post
