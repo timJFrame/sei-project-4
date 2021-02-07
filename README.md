@@ -66,7 +66,7 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 <h2>Creating the app</h2>
 
-<p>Once settled on a well rounded concept that would be achievable in the time frame but at the same time push me out of my comfort zone. I began the planning phase. Normally I would create wireframes and mind maps to help plan the flow and look of the website. However this time I took a different approach. I knew that I wanted to use a new CSS framework called, ‘Milligram’ but at this point hadn’t experimented with the framework. So instead of using wireframes and mind maps to the the front end of the website I built a dummy react application of how I would potentially like the site to look. I used this as the starting point when I built the front end. Below is a screenshot of the profile page from the dummy application.
+<p>Once settled on a well rounded concept that would be achievable in the time frame but at the same time push me out of my comfort zone. I began the planning phase. Normally I would create wireframes and mind maps to help plan the flow and look of the website. However this time I took a different approach. I knew that I wanted to use a new CSS framework called, ‘Milligram’ but at this point hadn’t experimented with the framework. So instead of using wireframes and mind maps to plan the front-end of the website I built a dummy react application of how I would potentially like the site to look. I used this as the starting point when I built the front end. Below is a screenshot of the profile page from the dummy application.
 </p>
 
 # ![](readme_images/style-test.png) 
@@ -75,7 +75,7 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 # ![](readme_images/erd-diagram.png) 
 
-<p>With a clear map of how the backend would function I began creating my app/models, urls and serializers in Django using Django Framework and a Postgre SQL database to serve the data. Staring with my user apps, then moving to my post app, comment app, chat app and lastly the message app. As I created each app I would test the urls assocaited with each app by making API requests in insomnia to test the response and error handling of each url.</p>
+<p>With a clear map of how the backend would function I began creating my app/models, urls and serializers in Django using Django Framework and a Postgre SQL database to serve the data. Starting with my user apps, then moving to my post app, comment app, chat app and lastly the message app. As I created each app I would test the urls assocaited with each app by making API requests in insomnia to test the response and error handling of each url.</p>
 
 <p>Once all the urls were working correctly I moved on to creating the font end in React. I began by creating the navbar and routing for the website, then moved on to the register page, from there to the login page, after that the feed page and then the user profiles. At this point I had reached my phase 1 MVP and was able to move onto Phase 2. Phase 2 was implementing the chat and messaging functionality and refining the styling on the front end.</p>
 
