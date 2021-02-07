@@ -52,7 +52,7 @@ function Login(){
             name="password"
             value={formdata.password}
             onChange={handleChange}
-            placeholder="Email"/>
+            placeholder="Password"/>
           {errors.password && <p>{errors.password}</p>}
           {errors.detail && <p className="form-error-message">{errors.detail}</p>}
           <button className="button-green button-outline form-sumbit full-length-button" type="submit">Login</button>

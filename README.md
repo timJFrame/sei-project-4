@@ -80,3 +80,23 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 <p>Once all the urls were working correctly I moved on to creating the font end in React. I began by creating the navbar and routing for the website, then moved on to the register page, from there to the login page, after that the feed page and then the user profiles. At this point I had reached my phase 1 MVP and was able to move onto Phase 2. Phase 2 was implementing the chat and messaging functionality and refining the styling on the front end.</p>
 
 <p>For the styling of the website I used Milligram CSS framework to style the forms and buttons. For the remaining styling I used Flexbox and Sass.</p>
+
+<h2>Challenges</h3>
+
+<p>This was the first project where I had used python as a backend programming language. At the start of the project I found it a bit challenging switching between using python on the back-end and JavaScript on the front but found my groove after day 2.</p>
+
+<p>Another aspect I found challenging was how to display the chat function on the front-end so a user could send a message to another user and the user that received the message could reply to the received message. This was challenging because the user who sent the first message would be the creator of the chat and the chat would be stored in the ‘createdChats’ array on the user object. However the user who received the chat would have the chat stored in the ‘recievedChats’ array in there user object but this user would still need to reply to the initial chat that was stored in the ‘createdChats’ array of the user who sent the first message.</p>
+
+<h2>Wins</h2>
+
+<p>The biggest win for me was definitely the implementation of the chat function. I found designing the models, ulrs and serializers really straightforward and it seemed to be running perfectly when I ran tests in insomnia. But when it came to implementing the feature on the front end it was a lot more challenging and I ran into a several problems I hadn’t accounted for. At one point I wasn’t sure I would be work it out. To get over this hurdle felt like a huge accomplishment and a nice progression in my skills as a developer.<p>
+
+<p>The first piece of code below is the from my, ‘CreateadMessage’ component and the second piece of code is from my ‘RecievedMessage’ component. When a user sends a message it is stored in the chat that was created by the user who sent the first message. When a user receives a message they reply to the the same chat that was started by the user who sent the first message. In turn creating a seamless experience for a user.</p>
+
+# ![](readme_images/chat-code-1.png) 
+# ![](readme_images/chat-code-2.png) 
+
+
+<h2>Future Features</h2>
+
+<p>If I had more time I would like to implement a poll feature. Where a user can pose a yes or no question and other users of the site could vote use yes or no to the question and have the results of the poll reflected on the feed page.</p>

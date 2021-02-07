@@ -1,8 +1,6 @@
 import React from 'react'
 import { useSpring, animated } from 'react-spring'
-
 import { postMessage, deleteChat } from '../../lib/api' 
-
 function CreatedMessage({ id, recipient, communications, getCurrentUser, setCurrentUser }){
 
   let chatId
@@ -38,8 +36,6 @@ function CreatedMessage({ id, recipient, communications, getCurrentUser, setCurr
     const { data } = await getCurrentUser()
     setCurrentUser(data)
   }
-  
-
 
   useSpring({ config: { duration: 5000 } })
   const fade = useSpring({ opacity: 1, from: { opacity: 0 } })

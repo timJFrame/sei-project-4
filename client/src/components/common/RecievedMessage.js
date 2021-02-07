@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { postMessage } from '../../lib/api' 
 
 function RecievedMessage({ owner, communications, getCurrentUser, setCurrentUser }){
@@ -28,11 +27,6 @@ function RecievedMessage({ owner, communications, getCurrentUser, setCurrentUser
     setMessageData({ text: '' })
     const { data } = await getCurrentUser()
     setCurrentUser(data)
-
-
-
-
-
   }
 
   return (
