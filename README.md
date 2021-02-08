@@ -2,7 +2,7 @@
 
 <h2>Project Brief</h2>
 
-<p>This was the fourth and final project I completed in General Assembly’s Immersive Software Engineering course. Project four was a solo coding project where I was tasked with building a full-stack application. Over a 7 day time period The backend had to be a fully restful API built with Django using Django REST Framework to serve up the data from a Postgres database. The front end of the application was to be built with React and could use any dependencies and CSS frameworks of my liking.</p>
+<p>This was the fourth and final project I completed in General Assembly’s Immersive Software Engineering course. Project four was a solo coding project where I was tasked with building a full-stack application. Over a 7 day time period. The backend had to be a fully restful API built with Django using Django REST Framework to serve up the data from a PostgreSQL database. The front end of the application was to be built with React and could use any dependencies and CSS frameworks of my liking.</p>
 
 <h2>Technologies used</h2>
 <ul>
@@ -30,7 +30,7 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 <h3>How to use the App</h3>
 
 <ol>
-<li>When a user first lands on the app they are taken to the home page that plays a short animation on loading. From here a user is given one of two choices in from the navigation bar. To log in if they already have an account to to register if they are a new user.</li>
+<li>When a user first lands on the app they are taken to the home page that plays a short animation on loading. From here a user is given one of two choices in the navigation bar. To log in if they already have an account or register if they are a new user.</li>
 
 # ![](readme_images/home-page.jpg)  
 
@@ -75,7 +75,7 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 # ![](readme_images/erd-diagram.png) 
 
-<p>With a clear map of how the backend would function I began creating my app/models, urls and serializers in Django using Django Framework and a Postgre SQL database to serve the data. Starting with my user apps, then moving to my post app, comment app, chat app and lastly the message app. As I created each app I would test the urls assocaited with each app by making API requests in insomnia to test the response and error handling of each url.</p>
+<p>With a clear map of how the backend would function I began creating my app/models, urls and serializers in Django using Django Framework and a PostgreSQL database to serve the data. Starting with my user apps, then moving to my post app, comment app, chat app and lastly the message app. As I created each app I would test the urls assocaited with each app by making API requests in insomnia to test the response and error handling of each url.</p>
 
 <p>Once all the urls were working correctly I moved on to creating the font end in React. I began by creating the navbar and routing for the website, then moved on to the register page, from there to the login page, after that the feed page and then the user profiles. At this point I had reached my phase 1 MVP and was able to move onto Phase 2. Phase 2 was implementing the chat and messaging functionality and refining the styling on the front end.</p>
 
