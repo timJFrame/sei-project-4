@@ -75,7 +75,7 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 # ![](readme_images/erd-diagram.png) 
 
-<p>With a clear map of how the backend would function I began creating my app/models, urls and serializers in Django using Django Framework and a Postgreadd SQL database to serve the data. Starting with my user apps, then moving to my post app, comment app, chat app and lastly the message app. As I created each app I would test the urls assocaited with each app by making API requests in insomnia to test the response and error handling of each url.</p>
+<p>With a clear map of how the backend would function I began creating my app/models, urls and serializers in Django using Django Framework and a PostgreSQL database to serve the data. Starting with my user apps, then moving to my post app, comment app, chat app and lastly the message app. As I created each app I would test the urls assocaited with each app by making API requests in insomnia to test the response and error handling of each url.</p>
 
 <p>Once all the urls were working correctly I moved on to creating the font end in React. I began by creating the navbar and routing for the website, then moved on to the register page, from there to the login page, after that the feed page and then the user profiles. At this point I had reached my phase 1 MVP and was able to move onto Phase 2. Phase 2 was implementing the chat and messaging functionality and refining the styling on the front end.</p>
 
