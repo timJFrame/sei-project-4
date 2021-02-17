@@ -47,18 +47,18 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 # ![](readme_images/feed-page-1.png) 
 # ![](readme_images/feed-page-2.png) 
 
-<li>Once landing on another users profile the user will be able to see a username, email, date the user joined, bio, friends of the user and lastly is a button that will let the user add the user who’s profile they are own as a friend.</li>
+<li>Once landing on another users profile the user will be able to see a username, email, date the user joined, bio, friends of the user and lastly is a button that will let the user add the user who’s profile they are on as a friend.</li>
 
 
 # ![](readme_images/member-profile.png) 
 
-<li>At this point a user can navigate to their own profile by clicking the ‘profile’ button in the nav bar. The profile profile view is only visible to the user who is logged in to the site. Here the user can see their username, email, date they joined, bio, friends list, posts they have created, posts they have liked and comments they have made. At the bottom of the page is a delete profile button, if a user clicks the delete button there profile will be deleted and they will be pushed to the homepage.</li>
+<li>At this point a user can navigate to their own profile by clicking the ‘profile’ button in the nav bar. The profile profile view is only visible to the user who is logged in to the site. Here the user can see their username, email, date they joined, bio, friends list, posts they have created, posts they have liked and comments they have made. At the bottom of the page is a delete profile button, if a user clicks the delete button their profile will be deleted and they will be pushed to the homepage.</li>
 
 # ![](readme_images/user-profile-1.png) 
 # ![](readme_images/user-profile-2.png) 
 # ![](readme_images/user-profile-3.png) 
 
-<li>A user also has the option to directly message any other users of the site. This can be done by clicking the open chat button at the bottom left of the page. From here the user selects the person they would like to chat with from the select menu and a chat box will appear to the right of the select menu. The user can then enter text in the message text field and click send. A user can create as many chats as they would like but they cannot start a chat with own profile. If a user started the chat they are able to delete the chat by clicking the delete button located at the button of each chat box.</li>
+<li>A user also has the option to directly message any other users of the site. This can be done by clicking the open chat button at the bottom left of the page. From here the user selects the person they would like to chat with from the select menu and a chat box will appear to the right of the select menu. The user can then enter text in the message text field and click send. A user can create as many chats as they would like but they cannot start a chat with own profile. If a user started the chat they are able to delete the chat by clicking the delete button located at the bottom of each chat box.</li>
 
 # ![](readme_images/chat-feature.png) 
 
@@ -80,7 +80,7 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 <p>Once the bones of the database were up and running. I moved onto setting up my apps. Starting off by installing, ‘Django REST Framework’ and adding it to the list of installed apps in the ‘settings’ file. Then I moved onto creating the first app for handling the users of the website, titled ‘jwt_auth' and added it to the, ‘Installed Apps’ list in the settings file of the project folder. Then moved onto creating the model, with the model written I created a new folder inside the ‘jw.auth’ folder titled, ‘serializers’. Inside ‘serializers’ I made a new file titled common. The common serializer is responsible for creating a users password, making sure the password and password confirmation match and requiring the password to be at least 8 characters long containing one number. Then I created a new file inside the ‘jwt.auth’ folder called, ‘authentication.py’, installed the ‘pyjwt’ dependency and added it to the ‘Installed Apps’ list in ‘settings.py’. ‘authentication.py’ was responsible for checking if a user has a valid authentication token. Lastly I added the ‘authentication.py’ file to the ‘settings.py’ file as the default method for authenticating a user, added the ‘jwt.auth’ model to the admin file in the ‘jwt.auth folder’, migrated the ‘jwt.auth’ app to the database and checked in the ‘Table Plus’ to make sure the database reflected the changes.</p>
 
-<p>The code snippet below is the 'common.py' serializer</p>
+<p>The code snippet below is the 'common.py' serializer.</p>
 
 # ![](readme_images/user-common.png) 
 
@@ -91,11 +91,11 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 # ![](readme_images/user-view.png) 
 
-<p>The image below is the insomina workspace I used in my project</p>
+<p>The image below is the insomina workspace I used in my project.</p>
 
 # ![](readme_images/insomnia.png) 
 
-<p>I followed the same process to create the models, serialisers, and ulrs for the, posts, comments, chats and communications apps. Each app ended up having an additional file in their, ‘serializers’ folder titled ‘populated.py’ that was responsible for showing nested information on the response object in an API request.</p>
+<p>I followed the same process to create the models, serializers, and ulrs for the, posts, comments, chats and communications apps. Each app ended up having an additional file in their, ‘serializers’ folder titled ‘populated.py’ that was responsible for showing nested information on the response object in an API request.</p>
 
 <p>With the back-end working correctly I moved to creating the front of the website. Making a new React application. Then created a, ‘components’ folder in the, ‘src’ folder. Inside the components folder I created a ‘Home’, ‘Nav’, ‘Register’ and ‘Login’ component. Added a basic structure to each component and imported each component to ‘App.js’. From here I built the routing for the website using ‘react-router-dom’ and moved onto making the navigation bar. With the navigation bar up and running I began working on the ‘Register’ component that involved making a custom hook to capture a users input and handle any errors. I reused the custom hook in the login page. Next I created a new folder titled, ‘lib', inside that a new file titled ‘api’ that would hold all the different API requests. In the API file I created a new POST request to handle registering a user. Next I moved to the login page and repeated the same process, however I also created a new file inside the, ‘lib’ folder titled ‘auth.js’ that was responsible for holding any functions that related to user authentication. Inside ‘auth.js’ I made a function called, ‘setToken’ that would store a users authentication token into local storage after they had logged in.</p>
 
@@ -105,12 +105,12 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 <p>With user authentication done and dusted I moved on to creating the ‘PostIndex.js’ component that used a GET request to request all the posts made by users of the site. The data from the request was then mapped over and posts were passed into their own ‘PostCard’ component. Once I had all the user posts showing correctly I started working on the functionality that allowed a user to create a post. Reusing the custom hook to capture info from a user and making a new POST request in the, ‘api.js’ file. After that moving onto the post edit and delete functionality that would allow a user to edit or delete their post on the ‘Feed’ page instead of being moved to another page. For the edit function this involved making a GET request for the post information stored in the database. Using that information to pre-populate the form a user would edit. Then making a PUT request to save the changes. The delete function was a DELETE request using the post id to identify the correct post.</p>
 
-<p>The the code snippet below are the functions used in creating a comment</p>
+<p>The the code snippet below are the functions used in creating a comment.</p>
 
 # ![](readme_images/comment-code.png) 
 
 
-<p>The next step was creating the commenting and liking functionality. Both involved making a post request to the database, but the comment had the extra functionality that allowed a user to delete any comments they had made. The last piece of functionality on the feed page was adding a link from the photo of a user to their profile. I used a ‘react-router-dom’ link to link to the users profile and when a user lands on a users profile(User.js component) a React use effect was used to make a GET request for the users profile. In the ‘User.js’ component I added the functionality to add a user as a friend. Using an onclick to capture the id of the user who’s profile was being visited sending a post request to the current users profile and pushing the visited users details into the current users ‘friendedBy’ array.</p>
+<p>The next step was creating the commenting and liking functionality. Both involved making a POST request to the database, but the comments had extra functionality that allowed a user to delete any comments they had made. The last piece of functionality on the feed page was adding a link from the photo of a user to their profile. I used a ‘react-router-dom’ link to link to the users profile and when a user lands on a users profile(User.js component) a React use effect was used to make a GET request for the users profile information. In the ‘User.js’ component I added the functionality to add a user as a friend. Using an onclick to capture the id of the user who’s profile was being visited sending a post request to the current users profile and pushing the visited users details into the current users ‘friendedBy’ array.</p>
 
 <p>The the code snippet below are the functions used to freind another user.</p>
 
@@ -135,7 +135,7 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 <h2>Wins</h2>
 
-<p>The biggest win for me was definitely the implementation of the chat function. I found designing the models, ulrs and serializers really straightforward and it seemed to be running perfectly when I ran tests in insomnia. But when it came to implementing the feature on the front end it was a lot more challenging and I ran into a several problems I hadn’t accounted for. At one point I wasn’t sure I would be work it out. To get over this hurdle felt like a huge accomplishment and a nice progression in my skills as a developer.<p>
+<p>The biggest win for me was definitely the implementation of the chat function. I found designing the models, ulrs and serializers really straightforward and it seemed to be running perfectly when I ran tests in insomnia. But when it came to implementing the feature on the front end it was a lot more challenging and I ran into a several problems I hadn’t accounted for. At one point I wasn’t sure I would be able work it out. To get over this hurdle felt like a huge accomplishment and a nice progression in my skills as a developer.<p>
 
 <p>The first piece of code below is the from my, ‘CreateadMessage’ component and the second piece of code is from my ‘RecievedMessage’ component. When a user sends a message it is stored in the chat that was created by the user who sent the first message. When a user receives a message they reply to the the same chat that was started by the user who sent the first message. In turn creating a seamless experience for a user.</p>
 
