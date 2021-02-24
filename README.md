@@ -147,7 +147,7 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 
 <h2>Learnings</h2>
-<p>With this being the biggest project I had undertaken by myself I found that planning and managing my time really keep me on track. Learning to value a well thought out plan that considered how to deal with potential issues before they came up.</p>
+<p>With this being the biggest project I had undertaken by myself I found that planning and managing my time really kept me on track. Learning to value a well thought out plan that considered how to deal with potential issues before they came up.</p>
 
 
 
