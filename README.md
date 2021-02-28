@@ -82,14 +82,81 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 <p>The code snippet below is the 'common.py' serializer.</p>
 
-# ![](readme_images/user-common.png) 
+```
+class UserSerializer(serializers.ModelSerializer):
+
+    password = serializers.CharField(write_only=True)
+    password_confirmation = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+
+
+        password = data.pop('password')
+        password_confirmation = data.pop('password_confirmation')
+
+        if password != password_confirmation:
+            raise ValidationError({'password_confirmation': 'does not match'})
+
+        try:
+            password_validation.validate_password(password=password)
+        except ValidationError as err:
+            raise ValidationError({'password': err.messages})
+
+        data['password'] = make_password(password)
+
+        return data
+
+    class Meta:
+        model = User
+        fields = '__all__'
+
+
+class NestedUserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'profile_image')
+```
 
 
 <p>The next step was creating the views for a user that included views to register a user, log a user in, a profile view of the user that was currently logged in, a user list view, a detailed user view and user friend view that was used to add another user to users friend list. From there I created a new file titled ‘urls.py’ that was responsible  for handling all the user routes and  then added the user routes to the main ‘urls.py file’ in the projects folder. As I was creating each view and url I would make API requests in, ‘Insomnia’ to check the appropriate response was being received and if an error is encountered the correct error messaged is raised.</p>
 
 <p>The code snippet below is the view for registering a user and logging a user in.</p>
 
-# ![](readme_images/user-view.png) 
+```
+class RegisterView(APIView):
+    '''  Controller for post request to /auth/login '''
+
+    def post(self, request):
+        user_to_create = UserSerializer(data=request.data)
+        if user_to_create.is_valid():
+            user_to_create.save()
+            return Response({'message': 'Registration Successful'}, status=status.HTTP_201_CREATED)
+        return Response(user_to_create.errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+class LoginView(APIView):
+    ''' Controller for request to /auth/login  '''
+
+    def post(self, request):
+        email = request.data.get('email')
+        password = request.data.get('password')
+        try:
+            user_to_login = User.objects.get(email=email)
+        except User.DoesNotExist:
+            raise PermissionDenied(detail='Invalid Credentials')
+        if not user_to_login.check_password(password):
+            raise PermissionDenied(detail='Invalid Credentials')
+        expiry_time = datetime.now() + timedelta(days=7)
+        token = jwt.encode(
+            {'sub': user_to_login.id, 'exp': int(expiry_time.strftime('%s'))},
+            settings.SECRET_KEY,
+            algorithm='HS256'
+        )
+        return Response(
+            {'token': token, 'message': f'Welcome Back {user_to_login}'}
+        )
+```
 
 <p>The image below is the insomina workspace I used in my project.</p>
 
@@ -101,20 +168,84 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 <p>The the code snippet below are the functions used to register a new user.</p>
 
-# ![](readme_images/register-code.png) 
+```
+ //*Captures users data from form
+  const { handleChange, formdata, errors, setErrors } = useForm({
+    username: '',
+    email: '',
+    password: '',
+    password_confirmation: '',
+    bio: '',
+    profile_image: ''
+  })
+
+  //*Hanldes submitting post request to database to register new user
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await registerUser(formdata)
+      history.push('/login')
+    } catch (err){
+      setErrors(err.response.data)
+    }
+  }
+
+```
 
 <p>With user authentication done and dusted I moved on to creating the ‘PostIndex.js’ component that used a GET request to request all the posts made by users of the site. The data from the request was then mapped over and posts were passed into their own ‘PostCard’ component. Once I had all the user posts showing correctly I started working on the functionality that allowed a user to create a post. Reusing the custom hook to capture info from a user and making a new POST request in the, ‘api.js’ file. After that moving onto the post edit and delete functionality that would allow a user to edit or delete their post on the ‘Feed’ page instead of being moved to another page. For the edit function this involved making a GET request for the post information stored in the database. Using that information to pre-populate the form a user would edit. Then making a PUT request to save the changes. The delete function was a DELETE request using the post id to identify the correct post.</p>
 
 <p>The the code snippet below are the functions used in creating a comment.</p>
 
-# ![](readme_images/comment-code.png) 
+```
+  //* State to capture comment
+  const [ commentData, setCommentData ] = React.useState({
+    text: '',
+    post: `${id}`
+  })
+
+  const handleCommentChange = (e) => {
+    setCommentData({ ...commentData, [e.target.name]: e.target.value })
+  }
+
+
+  //*Handles submitting a comment vis post request
+  const handleCommentSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await postComment(commentData)
+      setCommentData({ text: '', post: id })
+      const { data } =  await getAllPosts()
+      setPosts(data)
+    } catch (err){
+      console.log(err.response.data)
+    }
+  }
+  ```
 
 
 <p>The next step was creating the commenting and liking functionality. Both involved making a POST request to the database, but the comments had extra functionality that allowed a user to delete any comments they had made. The last piece of functionality on the feed page was adding a link from the photo of a user to their profile. I used a ‘react-router-dom’ link to link to the users profile and when a user lands on a users profile(User.js component) a React use effect was used to make a GET request for the users profile information. In the ‘User.js’ component I added the functionality to add a user as a friend. Using an onclick to capture the id of the user who’s profile was being visited sending a post request to the current users profile and pushing the visited users details into the current users ‘friendedBy’ array.</p>
 
-<p>The the code snippet below are the functions used to freind another user.</p>
+<p>The the code snippet below are the functions used to friend another user.</p>
 
-# ![](readme_images/add-friend.png) 
+```
+//*Remove added friend message
+  const removeAddedFriendMessage = () =>  {
+    setTimeout(()=> {
+      setAddedFriendMessage(false) 
+    }, 2000)
+  } 
+
+
+  const handleAddingFriend = async () => {
+    try {
+      await friendUser(id)
+      setAddedFriendMessage(true)
+      removeAddedFriendMessage()
+    } catch (err){
+      console.log(err)
+    }
+  }
+  ```
 
 
 <p>From here I moved onto making the ‘Profile Component’ that was used to display the profile of the current user who is logged in. This involved making a GET request using the the token that had been previously stored in local storage for authentication. On this page I was able to show the user a detailed breakdown of there activity on the website using reverse relationships I had established when building the relationships between app models.</p>
@@ -141,8 +272,140 @@ You can find a live version of the app here: [Vine](https://vine-social-network.
 
 <p>The 1st code snippet below is the ‘CreatedMessage’ component the 2nd snippet is the ‘RecievedMessage’ component.</p>
 
-# ![](readme_images/chat-code-1.png) 
-# ![](readme_images/chat-code-2.png) 
+```
+function CreatedMessage({ id, recipient, communications, getCurrentUser, setCurrentUser }){
+
+  let chatId
+  let recieverId
+
+  //*Handles making text field on chat from a controled input
+  const [messageData, setMessageData] = React.useState({
+    text: '',
+    chat: '',
+    receiver: ''
+  })
+
+
+  //*Handles getting for data to send in message body
+  const handleMessageChangeDetails =  (chatid, recieverid, e) => {
+    chatId = chatid
+    recieverId = recieverid
+    setMessageData({ ...messageData, [e.target.name]: e.target.value, chat: chatId, receiver: recieverId })
+  }
+
+  //*Handles submitting message post request
+  const handleMessageSubmit = async (e) => {
+    e.preventDefault()
+    await postMessage(messageData)
+    setMessageData({ text: '' })
+    const { data } = await getCurrentUser()
+    setCurrentUser(data)
+  }
+
+  //*Handles deleting a message
+  const handleMessageDelete = async (chatid) => {
+    await deleteChat(chatid)
+    const { data } = await getCurrentUser()
+    setCurrentUser(data)
+  }
+
+  useSpring({ config: { duration: 5000 } })
+  const fade = useSpring({ opacity: 1, from: { opacity: 0 } })
+
+  return (
+    <animated.div className="chat-container" style={fade}>
+      <h5>{`You're chatting with ${recipient.username} `}</h5>
+      {communications ?
+        communications.map(message => (
+          <div key={message.id}>
+            <p><strong>{`${message.sender.username}: `}</strong> {`${message.text}`} </p>
+          </div>
+                  
+        ))
+        :
+        <p>No chats yet</p>
+      }
+             
+      <form className="chat-form" onSubmit={handleMessageSubmit}>
+        <fieldset>
+          <input
+            type="text"
+            name="text"
+            value={messageData.text}
+            placeholder="Message"
+            onChange={(e)=> handleMessageChangeDetails(id, recipient.id , e)}
+          />
+                  
+        </fieldset>
+        <button className="button-green button-outline" type="submit" value="send">send</button>
+      </form>
+      <button className="button-red button-outline button-small" onClick={() => handleMessageDelete(id)}>Delete</button>
+    </animated.div> 
+  )
+}
+``` 
+
+```
+function RecievedMessage({ owner, communications, getCurrentUser, setCurrentUser }){
+  let chatId
+  let recieverId
+  
+  //*Handles making text field on chat from a controled input
+  const [messageData, setMessageData] = React.useState({
+    text: '',
+    chat: '',
+    receiver: ''
+  })
+  
+  
+  //*Handles getting for data to send in message body
+  const handleMessageChangeDetails =  (chatid, recieverid, e) => {
+    chatId = chatid
+    recieverId = recieverid
+    setMessageData({ ...messageData, [e.target.name]: e.target.value, chat: chatId, receiver: recieverId })
+  }
+  
+  //*Handles submitting message post request
+  const handleMessageSubmit = async (e) => {
+    e.preventDefault()
+    await postMessage(messageData)
+    setMessageData({ text: '' })
+    const { data } = await getCurrentUser()
+    setCurrentUser(data)
+  }
+
+  return (
+    < div className="chat-container">
+      <h5>{`You're chatting with ${owner.username} `}</h5>
+      {communications ?
+        communications.map(message => (
+          <div key={message.id}>
+            <p><strong>{`${message.sender.username}: `}</strong> {`${message.text}`} </p>
+          </div>
+      
+        ))
+        :
+        <p>No chats yet</p>
+      }
+ 
+      <form className="chat-form" onSubmit={handleMessageSubmit}>
+        <fieldset>
+          <input
+            type="text"
+            name="text"
+            value={messageData.text}
+            placeholder="Message"
+            onChange={(e)=> handleMessageChangeDetails(communications[0].chat, communications[0].sender.id , e)}
+          />
+      
+        </fieldset>
+        <button className="button-green button-outline" type="submit" value="send">send</button>
+      </form>
+    </div>
+
+  )
+}
+``` 
 
 
 
